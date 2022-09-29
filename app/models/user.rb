@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validates :password, presence: true
   validates :password_confirmation, presence: true
+
+  enum gender: { male: 0, female: 1 }
 end
