@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_29_052411) do
   create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "content", null: false
     t.string "prepare"
-    t.string "easy", null: false
+    t.integer "easy", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,1 +1,20 @@
 <h1>ユーザー詳細</h1>
+
+<h5>ユーザー名</h5>
+<%= @user.name %>
+
+<h5>メールアドレス</h5>
+<%= @user.email %>
+
+<h5>誕生日</h5>
+<%= @user.birthday %>
+
+<h5>性別</h5>
+<%= @user.gender %>
+
+<h5>提案した過ごしかた</h5>
+<% @user.tasks.each do |task| %>
+  <%= task.content %>
+  <%= task.prepare%>
+  <%= task.easy%>
+<% end %>
