@@ -1,0 +1,15 @@
+<h1>過ごしかた提案ページ</h1>
+
+<%= form_with model: @task, local: true do |f| %>
+  <%= f.label :content, "過ごしかた案" %>
+  <%= f.text_field :content %><br>
+  <%= f.label :prepare, "準備内容" %>
+  <%= f.text_field :prepare %><br>
+  <%= f.label :easy_easy, "手軽" %>
+  <%= f.radio_button :easy, :easy %>
+  <%= f.label :easy_normal, "やや手軽" %>
+  <%= f.radio_button :easy, :normal %>
+  <%= f.label :easy_difficult, "難しい" %>
+  <%= f.radio_button :easy, :difficult %><br>
+  <%= f.submit "登録" %>
+  <% end %>

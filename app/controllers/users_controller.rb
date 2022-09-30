@@ -8,11 +8,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = current_user
+    ＠tasks = @user.tasks
   end
 
   def create
     @user = User.new(user_params)
-    binding.pry
     if @user.save
       redirect_to root_path
     else
