@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     ＠tasks = @user.tasks
+
+    favorites = Favorite.where(user_id: current_user.id).pluck(:task_id)
+    @favorite_list = Task.find(favorites)
   end
 
   def create
