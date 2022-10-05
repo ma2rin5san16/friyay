@@ -14,7 +14,16 @@
 
 <h5>提案した過ごしかた</h5>
 <% @user.tasks.each do |task| %>
-  <%= task.content %>
-  <%= task.prepare%>
-  <%= task.easy%>
+  <li>
+    <%= task.content %>
+    <%= task.prepare%>
+    <%= task.easy%>
+  </li>
+<% end %>
+
+<h5>気になるリスト</h5>
+<% if @favorite_list.present? %>
+  <% @favorite_list.each do |task| %>
+    <li><%= task.content %></li>
+  <% end %>
 <% end %>
