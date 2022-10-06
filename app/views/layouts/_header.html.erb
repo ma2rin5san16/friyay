@@ -1,0 +1,30 @@
+<header>
+  <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto main-nav align-items-center">
+        <li class="nav-item">
+          <%= link_to "トップページ", root_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログイン", login_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ゲストログイン", '#', method: :delete, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "登録", new_user_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "マイページ", user_path(:user_id), class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", logout_path, method: :delete, class: 'nav-link' %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
