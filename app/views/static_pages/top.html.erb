@@ -2,3 +2,4 @@
 <p>ログイン中のユーザー：<%= current_user.name%></p>
 <% end %>
 <p><%= link_to "過ごし方を提案する", new_task_path %>
+<p><%= link_to "過ごし方をランダムで表示する", random_task_path(:id) %>
