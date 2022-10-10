@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
   add_flash_types :success, :info, :warning, :danger
+  include SessionsHelper
 
   private
     def logged_in_user

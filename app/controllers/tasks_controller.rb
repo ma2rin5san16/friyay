@@ -11,6 +11,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to root_path, success: '過ごし方を提案しました'
     else
+      flash.now[:danger] = "投稿に失敗しました"
       render :new
     end
   end
