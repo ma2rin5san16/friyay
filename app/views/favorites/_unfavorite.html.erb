@@ -1,0 +1,3 @@
+<%= link_to task_favorites_path(@task), id: "js-favorite-button-for-task-#{@task.id}", method: :delete, remote: true do %>
+    <span><i class="fa-solid fa-star"></i></span>
+  <% end %>

@@ -1,10 +1,15 @@
 <h1>過ごしかた詳細</h1>
 
 <h5>過ごしかた</h5>
-<%= @task.content %>
+<%= @task.content %><br>
 
 <h5>準備内容</h5>
-<%= @task.prepare %>
+<%= @task.prepare %><br>
 
 <h5>気軽度</h5>
-<%= @task[:easy] %>
+<%= @task[:easy] %><br>
+
+<h5>気になるリストへ登録</h5>
+<%= render partial: 'favorites/favorite_button', locals: {task_id: @task_id} %><br>
+<%= link_to "次の予定案を表示する", random_task_path(:id) %><br>
+<%= link_to "トップページへ戻る", root_path %>
