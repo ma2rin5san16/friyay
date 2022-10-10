@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :tasks
   has_many :favorite, dependent: :destroy
+  has_many :favorite_tasks, through: :favorites, source: :task
 
   has_secure_password
 
