@@ -9,7 +9,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user_id = current_user.id
     if @task.save
-      redirect_to root_path
+      redirect_to root_path, success: '過ごし方を提案しました'
     else
       render :new
     end
