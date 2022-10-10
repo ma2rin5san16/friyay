@@ -1,6 +1,6 @@
 <h1>過ごしかた提案ページ</h1>
 
-<%= form_with model: @task, local: true do |f| %>
+<%= form_with model: @task, local: true, data: { turbo: false } do |f| %>
   <%= f.label :content, "過ごしかた案" %>
   <%= f.text_field :content %><br>
   <%= f.label :prepare, "準備内容" %>
