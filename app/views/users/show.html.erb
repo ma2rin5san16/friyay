@@ -1,5 +1,7 @@
-<h1>ユーザー詳細</h1>
+<div class="container">
+<h1>マイページ</h1>
 
+<div class="row">
 <h5>ユーザー名</h5>
 <%= @user.name %>
 
@@ -21,9 +23,12 @@
   </li>
 <% end %>
 
+
+
 <h5>気になるリスト</h5>
 <% if @favorite_list.present? %>
   <% @favorite_list.each do |task| %>
     <li><%= task.content %></li>
   <% end %>
 <% end %>
+</div>

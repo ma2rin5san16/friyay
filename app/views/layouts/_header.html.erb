@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
+  <nav class="navbar navbar-expand-sm navigation navbar-light bg-light">
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,19 +10,20 @@
           <%= link_to "トップページ", root_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "ログイン", login_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ゲストログイン", '#', method: :delete, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
           <%= link_to "登録", new_user_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item">
-          <%= link_to "マイページ", user_path(:user_id), class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", logout_path, method: :delete, class: 'nav-link' %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            マイページ
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to "気になる一覧",'#', class:"dropdown-item" %></li>
+            <li><%= link_to "提案した過ごし方一覧",'#', class:"dropdown-item" %></li>
+            <li><%= link_to "実行した過ごし方一覧",'#', class:"dropdown-item" %></li>
+            <li><%= link_to "ユーザー登録情報",'#', class:"dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <%= link_to "ログアウト", logout_path, method: :delete, class: 'nav-link' %>
+          </ul>
         </li>
       </ul>
     </div>
