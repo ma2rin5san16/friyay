@@ -8,6 +8,7 @@ class GuestSessionsController < ApplicationController
       user.email = "guest_#{SecureRandom.urlsafe_base64}@example.com"
       user.password = SecureRandom.urlsafe_base64
       user.password_confirmation = user.password
+      user.guest = true
     if user.save
       log_in user
       redirect_to root_path, success: 'ゲストログインとしてログインしました'
