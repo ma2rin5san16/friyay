@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates :birthday, presence: true
   validates :gender, presence: true
   validates :password, presence: true, length: { minimum: 6 }
+  #validates :guest, default: false, null: false
 
   enum gender: { male: 0, female: 1 }
 end

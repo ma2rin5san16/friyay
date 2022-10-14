@@ -12,6 +12,7 @@
         <li class="nav-item">
           <%= link_to "登録", new_user_path, class: 'nav-link' %>
         </li>
+        <% if logged_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             マイページ
@@ -25,6 +26,7 @@
             <%= link_to "ログアウト", logout_path, method: :delete, class: 'nav-link' %>
           </ul>
         </li>
+        <% end %>
       </ul>
     </div>
   </nav>
