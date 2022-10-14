@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'guest_sessions/new'
+  post '/guest_login', to: "guest_sessions#create"
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
