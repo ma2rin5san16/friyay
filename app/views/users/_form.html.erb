@@ -1,17 +1,19 @@
-<%= form_with model: user, local: true, data: { turbo: false } do |f| %>
-  <%= f.label :name, "名前" %>
-  <%= f.text_field :name %><br>
-  <%= f.label :email, "メールアドレス"%>
-  <%= f.email_field :email %><br>
-  <%= f.label :birthday, "誕生日" %>
-  <%= f.date_select :birthday%><br>
-  <%= f.label :gender_male, "男性" %>
-  <%= f.radio_button :gender, :male %>
-  <%= f.label :gender_female, "女性" %>
-  <%= f.radio_button :gender, :female %><br>
-  <%= f.label :password, "パスワード" %>
-  <%= f.password_field :password %><br>
-  <%= f.label :password_confirmation, "パスワード（確認）"%>
-  <%= f.password_field :password_confirmation %><br>
-  <%= f.submit %>
-<% end%>
+<div class="container">
+    <%= form_with model: user, local: true, data: { turbo: false } do |f| %>
+      <%= f.label :name, "名前" %>
+      <%= f.text_field :name, class: "form-control" %>
+      <%= f.label :email, "メールアドレス"%>
+      <%= f.email_field :email, class: "form-control" %>
+      <%= f.label :birthday, "誕生日" %>
+      <%= f.date_select :birthday %><br>
+      <%= f.label :gender_male, "男性" %>
+      <%= f.radio_button :gender, :male %>
+      <%= f.label :gender_female, "女性" %>
+      <%= f.radio_button :gender, :female %><br>
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password, class: "form-control" %>
+      <%= f.label :password_confirmation, "パスワード（確認）"%>
+      <%= f.password_field :password_confirmation, class: "form-control" %><br>
+      <%= f.submit "登録する", class: "btn btn-primary" %>
+    <% end%>
+</div>

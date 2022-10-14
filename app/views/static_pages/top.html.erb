@@ -1,5 +1,20 @@
+<div class="container">
+  <h1>華金の過ごしかた、提案します</h1>
+  <h2>花の金曜日。週休二日制の導入で、翌日（土曜日）の出勤を気にせずに夜遅くまで楽しめるようになったところからいう。
+(本アプリのコンセプト説明)</h2>
+
+
 <% if current_user %>
 <p>ログイン中のユーザー：<%= current_user.name%></p>
 <% end %>
-<p><%= link_to "過ごし方を提案する", new_task_path %>
-<p><%= link_to "過ごし方をランダムで表示する", random_task_path(:id) %>
+
+  <div class="row">
+    <%= link_to "過ごし方を提案する", new_task_path, class: "col-lg-4" %>
+    <%= link_to "過ごし方をランダムで表示する", random_task_path(:id), class: "col-lg-4" %>
+    <%= link_to "過ごし方を検索する", '#', class: "col-lg-4" %>
+  </div>
+
+  <div class="row">
+    <%= link_to "ログインする", login_path, class: "col-lg-6" %>
+    <%= link_to "ゲストとしてログインする", '#', class: "col-lg-6" %>
+  
