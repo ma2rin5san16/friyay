@@ -1,31 +1,33 @@
 <header>
-  <h1>華金の過ごしかた、提案します</h1>
-  <p id="countdown"><%= countdown_to_friday %></p>
-  <nav class="navbar navbar-expand-xl navbar-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse show" id="navbarBasic">
-        <ul class="navbar-nav me-auto mb-2 mb-xl-0">
-          <li class="nav-item">
-            <%= link_to "ホーム", root_path, class: 'nav-link co-lg-2' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "提案する", new_task_path, class: 'nav-link co-lg-2' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ランダムで探す", random_task_path(:id), class: 'nav-link co-lg-2' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "キーワードで検索する", '#', class: 'nav-link co-lg-2' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ランキングを見る", '#', class: 'nav-link co-lg-2' %>
-          </li>
-        </ul>
-      </div>
+  <nav class="navbar navbar-expand-sm navigation">
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto main-nav align-items-center">
+        <li class="nav-item">
+          <%= link_to "トップページ", root_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "登録", new_user_path, class: 'nav-link' %>
+        </li>
+        <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            マイページ
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to "気になる一覧",'#', class:"dropdown-item" %></li>
+            <li><%= link_to "提案した過ごし方一覧",'#', class:"dropdown-item" %></li>
+            <li><%= link_to "実行した過ごし方一覧",'#', class:"dropdown-item" %></li>
+            <li><%= link_to "ユーザー登録情報",'#', class:"dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <%= link_to "ログアウト", logout_path, method: :delete, class: 'nav-link' %>
+          </ul>
+        </li>
+        <% end %>
+      </ul>
     </div>
   </nav>
 </header>

@@ -3,8 +3,7 @@
 
 <div class="row">
   <%= form_with url: guest_login_path, local: true, data: { turbo: false } do |f| %>
-      <%= f.label :birthday, "誕生年"%>
-      <%= f.date_select :birthday, use_month_numbers: true, start_year:1960, end_yaer: Time.now.year, prompt: "--", discard_day: true, discard_month: true %>年<br>
+      <%= f.date_select :birthday %><br>
       <%= f.label :gender_male, "男性" %>
       <%= f.radio_button :gender, :male %>
       <%= f.label :gender_female, "女性" %>

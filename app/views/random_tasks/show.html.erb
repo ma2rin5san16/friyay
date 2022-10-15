@@ -1,37 +1,15 @@
 <h1>過ごしかた詳細</h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col-3">
-      <h6>過ごしかた</h6>
-    </div>
-    <div class="col-9">
-      <%= @task.content %></span>
-    </div>
-  </div>
+<h5>過ごしかた</h5>
+<%= @task.content %><br>
 
-  <div class="row">
-    <div class="col-3">
-      <h6>準備内容</h6>
-    </div>
-    <div class="col-9">
-      <%= @task.prepare %></span>
-    </div>
-  </div>
+<h5>準備内容</h5>
+<%= @task.prepare %><br>
 
-  <div class="row">
-    <div class="col-3">
-      <h6>気軽度</h6>
-    </div>
-    <div class="col-9">
-      <%= @task[:easy] %>
-    </div>
-  </div>
+<h5>気軽度</h5>
+<%= @task[:easy] %><br>
 
-
-<span><%= render partial: 'favorites/favorite_button', locals: {task_id: @task_id} %></span>
-
-
-<span><%= link_to "次の予定案を表示する", random_task_path(:id) , class: "btn btn-light", id: "next-task" %></span>
-
-</div>
+<h5>気になるリストへ登録</h5>
+<%= render partial: 'favorites/favorite_button', locals: {task_id: @task_id} %><br>
+<%= link_to "次の予定案を表示する", random_task_path(:id) %><br>
+<%= link_to "トップページへ戻る", root_path %>
