@@ -1,1 +1,31 @@
 @import "font-awesome";
+/*
+*= require_self .
+*= require_tree .
+*/
+
+a {
+    color: #373737;
+    text-decoration: none;
+  }
+
+
+header { background-color: white;
+         .nav-link {
+            color: #c9c9c9 ;
+         }
+        }
+
+body { color: #adadad; 
+       background-color: #f4f4f4;
+       font-family: "HiraginoSans-W0","Hiragino Sans","ヒラギノ角ゴシック"; font-weight: 200;
+       text-align: center;
+  h1 {
+        text-align: center; 
+        color: #c0b283;
+        margin: 50px 0 ;
+     }
+  h2 {  color: #bababa; 
+        margin-bottom: 50px;
+      }
+  }
