@@ -1,33 +1,41 @@
-<header>
-  <nav class="navbar navbar-expand-sm navigation">
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto main-nav align-items-center">
-        <li class="nav-item">
-          <%= link_to "トップページ", root_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "登録", new_user_path, class: 'nav-link' %>
-        </li>
-        <% if logged_in? %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            マイページ
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to "気になる一覧",'#', class:"dropdown-item" %></li>
-            <li><%= link_to "提案した過ごし方一覧",'#', class:"dropdown-item" %></li>
-            <li><%= link_to "実行した過ごし方一覧",'#', class:"dropdown-item" %></li>
-            <li><%= link_to "ユーザー登録情報",'#', class:"dropdown-item" %></li>
-            <li><hr class="dropdown-divider"></li>
-            <%= link_to "ログアウト", logout_path, method: :delete, class: 'nav-link' %>
-          </ul>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
+        <div class="bg-yellow-300">
+          <!-- Mobile menu button -->
+          <div class="flex lg:hidden">
+            <button
+              type="button"
+              class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+              aria-label="toggle menu"
+            >
+              <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+                <path
+                  fill-rule="evenodd"
+                  d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+          <div class="hidden -mx-4 lg:flex lg:items-center">
+            <a
+              href="#"
+              class="block mx-4 mt-2 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400"
+              >Web developers</a
+            >
+            <a
+              href="#"
+              class="block mx-4 mt-2 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400"
+              >Web Designers</a
+            >
+            <a
+              href="#"
+              class="block mx-4 mt-2 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400"
+              >UI/UX Designers</a
+            >
+            <a
+              href="#"
+              class="block mx-4 mt-2 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400"
+              >Contact</a
+            >
+          </div>
+        </div>
 </header>
