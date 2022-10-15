@@ -9,23 +9,43 @@ a {
     text-decoration: none;
   }
 
-
 header { background-color: white;
-         .nav-link {
-            color: #c9c9c9 ;
          }
-        }
+
+#countdown {
+   text-align: right;
+   margin-right: 40px;
+   color: #c0b283;
+}
 
 body { color: #adadad; 
        background-color: #f4f4f4;
        font-family: "HiraginoSans-W0","Hiragino Sans","ヒラギノ角ゴシック"; font-weight: 200;
        text-align: center;
   h1 {
-        text-align: center; 
+        text-align: left; 
         color: #c0b283;
-        margin: 50px 0 ;
+        margin: 30px 0 30px 20px;
      }
   h2 {  color: #bababa; 
         margin-bottom: 50px;
       }
   }
+
+.main-brapper {
+   background-color: white;
+   float: right;
+   margin-top: 20px;
+}
+
+.main-table {
+   background-color: white;
+   .title {
+      background-color: red;
+   }
+}
+
+.profile-card-body {
+        list-style: none;
+        padding-left: 0;
+}

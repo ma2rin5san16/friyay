@@ -15,6 +15,96 @@
   <body>
     <%= render 'layouts/header' %>
     <%= render 'shared/flash_message' %>
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <div class="card mt-3 mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <%= image_tag 'person.png', class: "img-fluid rounded-start" %>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <% if logged_in? %>
+                    <ul class="profile-card-body">
+                      <li><%= current_user.name %></li>
+                      <li><%= current_user.birthday.year %>年生まれ</li>
+                      <li><%= current_user.gender %></li>
+                    </ul>
+                    <%= link_to logout_path, data: { turbo_method: :delete } do %>
+                      <p class="card-text"><small class="text-muted">ログアウト</small></p>
+                    <% end %>
+                  <% else %>
+                  ログインしてください
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="main-table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="row"></th>
+                  <td>華金データ</td>
+                  <td colspan="2"></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">◎</th>
+                  <td>提案一覧</td>
+                    <td colspan="2">
+                    <%= link_to '#' do %>
+                      <% if logged_in? %>
+                        <%= current_user.tasks.size %><span>件</span>
+                        <% else %>
+                        <span>-- 件</span>
+                      <% end %>
+                    <% end %>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">◎</th>
+                  <td>実行一覧</td>
+                  <td colspan="2">
+                  <%= link_to '#' do %>
+                      <% if logged_in? %>
+                        <span>未実装</span>
+                        <% else %>
+                        <span>-- 件</span>
+                      <% end %>
+                    <% end %>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">◎</th>
+                  <td colspan="2">気になるリスト</td>
+                  <td>
+                  <%= link_to '#' do %>
+                      <% if logged_in? %>
+                        <%= current_user.favorite.size %><span>件</span>
+                        <% else %>
+                        <span>-- 件</span>
+                      <% end %>
+                    <% end %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+
+
+
+
+
+        </div>
+        <div class="col-9 main-brapper">
+          <%= yield %>
+        </div>
+      </div>
   </body>
 </html>
