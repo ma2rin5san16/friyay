@@ -4,8 +4,8 @@
       <%= f.text_field :name, class: "form-control" %>
       <%= f.label :email, "メールアドレス"%>
       <%= f.email_field :email, class: "form-control" %>
-      <%= f.label :birthday, "誕生日" %>
-      <%= f.date_select :birthday %><br>
+      <%= f.label :birthday, "誕生年：" %>
+      <%= f.date_select :birthday, use_month_numbers: true, start_year:1960, end_yaer: Time.now.year, prompt: "--", discard_day: true, discard_month: true %>年<br>
       <%= f.label :gender_male, "男性" %>
       <%= f.radio_button :gender, :male %>
       <%= f.label :gender_female, "女性" %>
