@@ -29,7 +29,7 @@
                     <ul class="profile-card-body">
                       <li><%= current_user.name %></li>
                       <li><%= current_user.birthday.year %>年生まれ</li>
-                      <li><%= current_user.gender %></li>
+                      <li><%= current_user.gender_i18n %></li>
                     </ul>
                     <%= link_to logout_path, data: { turbo_method: :delete } do %>
                       <p class="card-text"><small class="text-muted">ログアウト</small></p>
