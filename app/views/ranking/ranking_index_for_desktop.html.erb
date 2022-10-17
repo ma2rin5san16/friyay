@@ -1,0 +1,9 @@
+<div class="content">
+  <h1>現在のトレンド</h1>
+  <div class="row">
+<% @week_task_favorite_ranks.each.with_index(1) do |task, i| %>
+  第<%= i %>位
+  <%= task.content %>
+<% end %>
+</div>
+</div>

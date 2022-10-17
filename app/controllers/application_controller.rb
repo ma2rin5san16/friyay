@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
         redirect_to login_path
       end
     end
+
+    def register_user
+      if current_user.guest?
+        redirect_to login_path
+      end
+    end
 end

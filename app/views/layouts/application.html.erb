@@ -36,6 +36,12 @@
                     <% end %>
                   <% else %>
                   ログインしてください
+                  <div class="row">
+      <%= link_to "ログイン", login_path, class: "btn btn-sm" %>
+    </div>
+    <div class="row">
+      <%= link_to "ゲストログイン", guest_sessions_new_path, class: "btn btn-sm " %>
+    </div>
                   <% end %>
                 </div>
               </div>
@@ -56,7 +62,7 @@
                   <th scope="row">◎</th>
                   <td>提案一覧</td>
                     <td colspan="2">
-                    <%= link_to '#' do %>
+                    <%= link_to tasks_path do %>
                       <% if logged_in? %>
                         <%= current_user.tasks.size %><span>件</span>
                         <% else %>
@@ -82,9 +88,9 @@
                   <th scope="row">◎</th>
                   <td colspan="2">気になるリスト</td>
                   <td>
-                  <%= link_to '#' do %>
+                  <%= link_to favorites_path do %>
                       <% if logged_in? %>
-                        <%= current_user.favorite.size %><span>件</span>
+                        <%= current_user.favorites.size %><span>件</span>
                         <% else %>
                         <span>-- 件</span>
                       <% end %>

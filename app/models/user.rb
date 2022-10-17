@@ -2,7 +2,7 @@ class User < ApplicationRecord
   before_save { self.email = self.email.downcase }
 
   has_many :tasks
-  has_many :favorite, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :favorite_tasks, through: :favorites, source: :task
 
   has_secure_password

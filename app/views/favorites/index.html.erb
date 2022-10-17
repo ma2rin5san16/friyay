@@ -1,11 +1,11 @@
 <div class="container">
-  <h1>提案した過ごしかた一覧</h1>
+  <h1>気になる過ごしかた一覧</h1>
 
-  <% @tasks.each do |task| %>
+  <% @favorites.each do |favorite| %>
   <div class="table-responsive-lg">
     <table class="table">
       <tr>
-        <td><%= task.content %></td>
+        <td><%= favorite.content %></td>
       <tr>
     </table>
   </div>
