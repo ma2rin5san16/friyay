@@ -8,7 +8,8 @@
     <%= f.label :password, "パスワード" %>
     <%= f.password_field :password, class: "form-control" %>
 
-    <%= f.submit "ログイン", class: "btn btn-primary mt-2" %>
+    <%= f.submit "ログイン", class: "btn btn-right mt-2" %>
   <% end %>
   </div>
+  <p><%= link_to "新規ユーザー登録はこちら", new_user_path %></p>
 </div>
