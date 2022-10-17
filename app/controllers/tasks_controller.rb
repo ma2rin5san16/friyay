@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
   before_action :logged_in_user, only:[:new, :create, :destroy, :index]
   before_action :register_user, only:[:new]
+  before_action :set_q, only:[:index, :search]
 
   def index
-    @tasks = Task.where(user_id: current_user.id).order(created_at: :desc)
+    @tasks = @q.result.order(created_at: :desc)
   end
 
   def new
@@ -29,8 +30,17 @@ class TasksController < ApplicationController
   def edit
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
+
     def task_params
       params.require(:task).permit(:content, :prepare, :easy)
+    end
+
+    def set_q
+      @q = Task.ransack(params[:q])
     end
 end

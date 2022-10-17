@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>過ごしかた検索</h1>
+
+  <!-- 検索フォーム　-->
+  <%= search_form_for @q, url: search_tasks_path do |f| %>
+    <%= f.label :content, "過ごしかた名" %>
+    <%= f.serch_field :content %>
+    <% f.submit "検索"%>
+  <% end %>
+
+</div>

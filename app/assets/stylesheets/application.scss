@@ -18,7 +18,7 @@ header { background-color: white;
    color: #c0b283;
 }
 
-body { color: #adadad; 
+body { color: #373737; 
        background-color: #f4f4f4;
        font-family: "HiraginoSans-W0","Hiragino Sans","ヒラギノ角ゴシック"; font-weight: 200;
        text-align: center;
@@ -50,3 +50,13 @@ body { color: #adadad;
         padding-left: 0;
 }
 
+.task-list {
+   border-top: 3px solid #c0b283;
+   border-bottom: 3px solid #c0b283;
+   padding: 10px;
+   margin: 0 20px;
+}
+
+.task-content {
+   font-weight: 600;
+}
