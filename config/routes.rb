@@ -6,16 +6,14 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy"
   root to: "ranking#ranking_index_for_desktop"
   resources :users
-  resources :users, only: [:show] do 
-    get :favorites, on: :collection 
-  end
   resources :tasks do
-    resource :favorites, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy] do
+      patch "toggle_status"
+    end
   end
   resources :random_tasks, only:[:show]
-  resources :favorites, only: [:index]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"
-
 end

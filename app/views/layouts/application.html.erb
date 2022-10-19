@@ -73,11 +73,11 @@
                 </tr>
                 <tr>
                   <th scope="row">◎</th>
-                  <td>実行一覧</td>
-                  <td colspan="2">
-                  <%= link_to '#' do %>
+                  <td colspan="2">マイ華金リスト</td>
+                  <td>
+                  <%= link_to current_user do %>
                       <% if logged_in? %>
-                        <span>未実装</span>
+                        <%= current_user.favorites.size %><span>件</span>
                         <% else %>
                         <span>-- 件</span>
                       <% end %>
@@ -85,12 +85,25 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">◎</th>
-                  <td colspan="2">気になるリスト</td>
+                  <th scope="row">・</th>
+                  <td colspan="2">未実行</td>
                   <td>
-                  <%= link_to favorites_path do %>
+                  <%= link_to current_user do %>
                       <% if logged_in? %>
-                        <%= current_user.favorites.size %><span>件</span>
+                        <%= current_user.favorites.unevaluated.size %><span>件</span>
+                        <% else %>
+                        <span>-- 件</span>
+                      <% end %>
+                    <% end %>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">・</th>
+                  <td colspan="2">実行済</td>
+                  <td>
+                  <%= link_to current_user do %>
+                      <% if logged_in? %>
+                        <%= current_user.favorites.evaluated.size %><span>件</span>
                         <% else %>
                         <span>-- 件</span>
                       <% end %>

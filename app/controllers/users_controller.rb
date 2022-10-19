@@ -8,10 +8,10 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @tasks = @user.tasks
-
-    favorites = Favorite.where(user_id: current_user.id).pluck(:task_id)
-    @favorite_list = Task.find(favorites)
+    #current_userが提案したタスク一覧を取得
+    @tasks = current_user.tasks
+    #current_userが追加したお気に入り一覧を取得
+    @favorite_tasks = current_user.favorites
   end
 
   def create

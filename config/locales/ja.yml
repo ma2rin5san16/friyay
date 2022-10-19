@@ -9,3 +9,7 @@ ja:
         easy: 手軽
         normal: やや手軽
         difficult: 難しい
+    favorite:
+      status:
+        unevaluated: 未実行
+        evaluated: 実行済

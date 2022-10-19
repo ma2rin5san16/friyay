@@ -1,7 +1,15 @@
 class FavoritesController < ApplicationController
 
+  def toggle_status
+    @favorite = Favorite.find(params[:task_id])
+    @favorite.toggle_status!
+    redirect_to current_user, success: 'ステータスを更新しました'
+  end
+
   def index
-    @favorites = current_user.favorite_tasks.order(created_at: :desc)
+    #お気に入りずみのタスクレコードを取得
+    @favorite_tasks = current_user.favorite_tasks.order(created_at: :desc)
+    @favorites = current_user.favorites
   end
 
   def create
