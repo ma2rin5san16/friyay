@@ -2,18 +2,6 @@
 <h1>マイページ</h1>
 
 <div class="row">
-<h5>ユーザー名</h5>
-<%= @user.name %>
-
-<h5>メールアドレス</h5>
-<%= @user.email %>
-
-<h5>誕生日</h5>
-<%= @user.birthday %>
-
-<h5>性別</h5>
-<%= @user.gender %>
-
 <h5>提案した過ごしかた</h5>
 <% @user.tasks.each do |task| %>
   <li>
@@ -23,12 +11,11 @@
   </li>
 <% end %>
 
-
-
-<h5>気になるリスト</h5>
-<% if @favorite_list.present? %>
-  <% @favorite_list.each do |task| %>
-    <li><%= task.content %></li>
+<h5>お気に入りリスト</h5>
+  <% @favorite_tasks.each do |favorite_task| %>
+    <li>
+      <%= favorite_task.task.content %>
+      <%= link_to favorite_task.status_i18n, toggle_status_task_favorites_path(favorite_task), method: :patch %>
+    </li>
   <% end %>
-<% end %>
 </div>

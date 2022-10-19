@@ -1,11 +1,15 @@
 <div class="container">
   <h1>気になる過ごしかた一覧</h1>
 
-  <% @favorites.each do |favorite| %>
+  <% @favorite_tasks.each do |favorite_task| %>
   <div class="table-responsive-lg">
     <table class="table">
       <tr>
-        <td><%= favorite.content %></td>
+        <td><%= favorite_task.content %></td>
+        <td>
+        <% @favorites.each do |favorite| %><p>
+        <%= link_to favorite.status_i18n, task_favorite_toggle_status_path(:task_id, :favorite_id), methhod: :patch %>
+      </p><% end %></td>
       <tr>
     </table>
   </div>
