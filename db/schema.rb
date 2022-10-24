@@ -10,22 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_18_132830) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_20_000835) do
   create_table "favorites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "task_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0, null: false
-    t.index ["task_id"], name: "index_favorites_on_task_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
-  end
-
-  create_table "ratings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "comment"
     t.integer "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_favorites_on_task_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

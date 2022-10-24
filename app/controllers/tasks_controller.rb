@@ -34,6 +34,11 @@ class TasksController < ApplicationController
     @results = @q.result
   end
 
+  def random_show
+    @task = Task.order("RAND()").first
+    @favorited = Favorite.find_by(user_id: current_user.id, task_id: @task.id)
+  end
+
   private
 
     def task_params
