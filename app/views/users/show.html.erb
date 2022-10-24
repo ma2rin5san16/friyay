@@ -15,7 +15,8 @@
   <% @favorite_tasks.each do |favorite_task| %>
     <li>
       <%= favorite_task.task.content %>
-      <%= link_to favorite_task.status_i18n, toggle_status_task_favorites_path(favorite_task), method: :patch %>
+      <%= link_to favorite_task.status_i18n, task_favorite_toggle_status_path(favorite_task.task, favorite_task), method: :patch %>
+      <%= link_to "評価する", edit_task_favorite_path(favorite_task.task, favorite_task) %>
     </li>
   <% end %>
 </div>

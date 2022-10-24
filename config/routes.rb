@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   root to: "ranking#ranking_index_for_desktop"
   resources :users
   resources :tasks do
-    resource :favorites, only: [:create, :destroy] do
+    get "random_show"
+    resources :favorites, only: [:create, :destroy, :edit, :update] do
       patch "toggle_status"
     end
   end

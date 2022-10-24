@@ -1,1 +1,1 @@
-$("#js-favorite-button-for-task-<%= @task.id %>").replaceWith("<%= j(render('favorites/favorite', task: @task)) %>");
+$("#js-favorite-button-for-task-<%= @task.id %>").replaceWith("<%= j(render('favorites/favorite', task: @task, favorited: @favorited)) %>");

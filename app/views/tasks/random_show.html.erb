@@ -1,0 +1,39 @@
+<h1>過ごしかた詳細</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h6>過ごしかた</h6>
+    </div>
+    <div class="col-9">
+      <%= @task.content %></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <h6>準備内容</h6>
+    </div>
+    <div class="col-9">
+      <%= @task.prepare %></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <h6>気軽度</h6>
+    </div>
+    <div class="col-9">
+      <%= @task.easy_i18n %>
+    </div>
+  </div>
+
+
+<span><%= render partial: 'favorites/favorite_button', locals: {task_id: @task_id} %></span>
+
+
+<span><%= link_to "次の予定案を表示する", random_task_path(:id) , class: "btn btn-light", id: "next-task" %></span>
+
+
+
+</div>
