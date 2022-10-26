@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :logged_in_user, only:[:new, :create, :destroy, :index]
-  before_action :register_user, only:[:new]
+  before_action :only_register_user, only:[:new, :create, :destroy]
   before_action :set_q, only:[:index, :search]
 
   def index

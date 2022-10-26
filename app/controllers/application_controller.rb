@@ -9,9 +9,10 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def register_user
+    #ゲストログインの場合はログインが必要
+    def only_register_user
       if current_user.guest?
-        redirect_to login_path
+        redirect_back_or_to root_path, warning: "ユーザー登録が必要です"
       end
     end
 end
