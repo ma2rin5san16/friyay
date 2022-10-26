@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 gem 'bcrypt', '~> 3.1', '>= 3.1.18'
 
 gem 'bootstrap', '~> 5.2', '>= 5.2.1'
+gem 'bootswatch'
 
 gem 'jquery-rails'
 
