@@ -1,3 +1,3 @@
-<%= link_to task_favorite_path(@task, @favorited), id: "js-favorite-button-for-task-#{@task.id}", method: :delete, remote: true do %>
-    <span class="class="btn btn-light>お気に入り解除<i class="fa-solid fa-star"></i></span>
+<%= link_to task_favorite_path(@task, @favorite), id: "js-favorite-button-for-task-#{@task.id}", method: :delete, remote: true do %>
+    <span class="btn btn-success">お気に入り解除<i class="fa-solid fa-star"></i></span>
   <% end %>

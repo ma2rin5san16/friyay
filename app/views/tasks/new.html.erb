@@ -1,15 +1,16 @@
-<h1>過ごしかた提案ページ</h1>
-
 <div class="container">
+  <h2>華金の過ごしかたを提案してみませんか？</h2>
+  <p>あなたのとっておきの華金を提案してましょう！</p>
+  <p>どんな小さなことでも構いません！気軽に提案してみましょう！</p>
 
 <%= form_with model: @task, local: true, data: { turbo: false } do |f| %>
   <div class="mb-3">
     <%= f.label :content, "過ごしかた案", class: "form-label" %>
-    <%= f.text_field :content, class: "form-control" %>
+    <%= f.text_field :content, class: "form-control", placeholder: "(例) ピザを食べながら映画を観る"%>
   </div>
   <div class="mb-3">
     <%= f.label :prepare, "準備内容", class: "form-label" %>
-    <%= f.text_field :prepare, class: "form-control" %>
+    <%= f.text_field :prepare, class: "form-control", placeholder: "(例) 宅配ピザの手配、観る映画を決めておく、プロジェクターがあると尚良し！" %>
   </div>
   <div class="mb-3">
     <%= f.label :easy_easy, "手軽" %>

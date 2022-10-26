@@ -1,22 +1,26 @@
 <div class="container">
-<h1>マイページ</h1>
+<legend><%= @user.name %>さんのページ</legend>
 
-<div class="row">
-<h5>提案した過ごしかた</h5>
-<% @user.tasks.each do |task| %>
-  <li>
-    <%= task.content %>
-    <%= task.prepare%>
-    <%= task.easy%>
-  </li>
-<% end %>
+<div class="card mt-3 mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <%= image_tag 'person.png', class: "img-fluid rounded-start" %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <ul class="profile-card-body">
+          <li><%= @user.name %></li>
+          <li><%= @user.birthday.year %>年生まれ</li>
+          <li><%= @user.gender_i18n %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h5>お気に入りリスト</h5>
-  <% @favorite_tasks.each do |favorite_task| %>
-    <li>
-      <%= favorite_task.task.content %>
-      <%= link_to favorite_task.status_i18n, task_favorite_toggle_status_path(favorite_task.task, favorite_task), method: :patch %>
-      <%= link_to "評価する", edit_task_favorite_path(favorite_task.task, favorite_task) %>
-    </li>
-  <% end %>
+<div class="d-grid gap-2">
+  <%= link_to "提案一覧", user_suggested_list_path(@user), class: "btn btn-lg btn-primary" %>
+  <%= link_to "気になるリスト", user_favorited_list_path(@user), class: "btn btn-lg btn-primary" %>
+</div>
+
 </div>

@@ -1,21 +1,21 @@
 <div class="container">
-  <h1>過ごしかた一覧</h1>
-
-  <%= search_form_for @q, url: tasks_path do |f| %>
-    <%= f.label :content_cont, "過ごしかた" %>
-    <%= f.search_field :content_cont %>
-
-    <%= f.select :easy_eq, Task.easies_i18n.invert.map { |key, value| [key, Task.easies[value]]}, include_blank:'指定なし', class:'form-control mr-1' %>
-
-    <%= f.submit "検索" %>
-  <% end %>
+  <legend>過ごしかた一覧</legend>
+    <form class="d-flex mb-2">
+      <%= search_form_for @q, url: tasks_path do |f| %>
+        <%= f.search_field :content_cont, class:"form-control me-sm-2", placeholder:"過ごしかた検索" %>
+        <%= f.select :easy_eq, Task.easies_i18n.invert.map { |key, value| [key, Task.easies[value]]}, include_blank:'指定なし', class:"form-control me-sm-2" %>
+        <%= f.submit "検索", class:"btn btn-secondary my-2 my-sm-0" %>
+        <% end %>
+    </form>
 
   <% @tasks.each do |task| %>
-    <div class="task-list">
-      <div class="task-content"><%= task.content %></div>
-      <div class="task-prepare"><%= task.prepare %></div>
-      <div class="task-easy"><%= task.easy_i18n %></div>
-      <div class="task-belongs-to">by：<%= link_to "#{task.user.name}", '#'%>さん</div>
+    <div class="card bg-secondary mb-3" style="max-width: 100rem;">
+      <div class="card-header">by：<%= link_to "#{task.user.name}", user_path(task.user)%>さん</div>
+      <div class="card-body">
+        <h4 class="card-title"><%= task.content %></h4>
+        <p class="card-text"><%= task.prepare %></p>
+        <p class="card-text"><%= task.easy_i18n %></p>
+     </div>
     </div>
   <% end %>
 </div>

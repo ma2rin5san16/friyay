@@ -1,0 +1,16 @@
+<% @user.favorites.each do |favorite| %>
+  <div class="card bg-secondary mb-3" style="max-width: 100rem;">
+    <div class="card-body">
+      <h4 class="card-title"><%= favorite.task.content %></h4>
+      <p class="card-title"><%= favorite.task.prepare %></p>
+      <p class="card-title"><%= favorite.task.easy_i18n %></p>
+      <% if favorite.unevaluated? %>
+        <span class="card-text badge bg-warning" ><%= link_to favorite.status_i18n, task_favorite_toggle_status_path(favorite.task, favorite), method: :patch %></span>
+      <% else %>
+        <span class="card-text badge bg-success" ><%= link_to favorite.status_i18n, task_favorite_toggle_status_path(favorite.task, favorite), method: :patch %></span>
+        <span class="card-text"><%= link_to "評価する", edit_task_favorite_path(favorite.task, favorite) %></span>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
