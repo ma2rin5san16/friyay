@@ -9,7 +9,7 @@
     </form>
 
   <% @tasks.each do |task| %>
-    <div class="card bg-secondary mb-3" style="max-width: 100rem;">
+    <div class="card border-secondary mb-3" style="max-width: 100rem;">
       <div class="card-header">by：<%= link_to "#{task.user.name}", user_path(task.user)%>さん</div>
       <div class="card-body">
         <h4 class="card-title"><%= task.content %></h4>

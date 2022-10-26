@@ -1,19 +1,19 @@
 <legend>過ごしかた詳細</legend>
 
-<div class="card bg-secondary mb-3" style="max-width: 100rem;">
+<div class="card border-secondary mb-3" style="max-width: 100rem;">
   <div class="card-header">by：<%= link_to "#{@task.user.name}", user_path(@task.user) %>さん</div>
   <div class="card-body">
     <h4 class="card-title"><%= @task.content %></h4>
     <p class="card-text"><%= @task.prepare %></p>
     <p class="card-text"><%= @task.easy_i18n %></p>
       <span><%= render partial: 'favorites/favorite_button', locals: {task_id: @task_id} %></span>
-      <span><%= link_to "次の予定案を表示する", task_random_show_path(:id) , class: "btn btn-outline-primary ml-10" %></span>
+      <span><%= link_to "次の予定案を表示する", task_random_show_path(:id) , class: "btn btn-outline-primary ml-0" %></span>
   </div>
 </div>
 
  <legend>実行した人の評価</legend>
   <% @task.favorites.each do |favorite| %>
-    <div class="card bg-secondary mb-3" style="max-width: 100rem;">
+    <div class="card border-secondary mb-3" style="max-width: 100rem;">
       <div class="card-header"><%= favorite.user.name %>さん</div>
       <div class="card-body">
         <h4 class="card-title">
