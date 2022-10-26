@@ -1,15 +1,14 @@
 <header>
   <h1>華金の過ごしかた、提案します</h1>
   <p id="countdown"><%= countdown_to_friday %></p>
-  <nav class="navbar navbar-expand-xl navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
       <div class="collapse navbar-collapse show" id="navbarBasic">
         <ul class="navbar-nav me-auto mb-2 mb-xl-0">
-          <li class="nav-item">
+          <li class="nav-item active">
             <%= link_to "ホーム", root_path, class: 'nav-link co-lg-2' %>
           </li>
           <li class="nav-item">
@@ -24,6 +23,11 @@
           <li class="nav-item">
             <%= link_to "ランキングを見る", '#', class: 'nav-link co-lg-2' %>
           </li>
+          <% if logged_in? %>
+            <li class="nav-item">
+              <%= link_to "マイページ", user_path(current_user), class: 'nav-link co-lg-2' %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

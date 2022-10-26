@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
   root to: "ranking#ranking_index_for_desktop"
-  resources :users
+  resources :users do
+    get "suggested_list"
+    get "favorited_list"
+  end
   resources :tasks do
     get "random_show"
     resources :favorites, only: [:create, :destroy, :edit, :update] do

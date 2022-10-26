@@ -3,14 +3,21 @@
 
 <div class="row">
   <%= form_with url: guest_login_path, local: true, data: { turbo: false } do |f| %>
-      <%= f.label :birthday, "誕生年"%>
-      <%= f.date_select :birthday, use_month_numbers: true, start_year:1960, end_yaer: Time.now.year, prompt: "--", discard_day: true, discard_month: true %>年<br>
-      <%= f.label :gender_male, "男性" %>
-      <%= f.radio_button :gender, :male %>
-      <%= f.label :gender_female, "女性" %>
-      <%= f.radio_button :gender, :female %><br>
-
-    <%= f.submit "ログイン", class: "btn btn-primary mt-2" %>
+    <div class="form-group">
+      <%= f.label :birthday, "誕生年", class:"form-label mt-4" %>
+      <%= f.date_select :birthday, class:"form-select", use_month_numbers: true, start_year:1960, end_yaer: Time.now.year, prompt: "--", discard_day: true, discard_month: true, id: "exampleSelect1" %>
+    </div>
+    <div class="form-group">
+      <legend class="mt-4">性別</legend>
+        <div class="form-check">
+          <%= f.radio_button :gender, :male, class:"form-check-input" %>
+          <%= f.label :gender_male, "男性", class:"form-check-label" %>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :gender, :female, class:"form-check-input" %>
+          <%= f.label :gender_female, "女性", class:"form-check-label" %>
+        </div>
+      <%= f.submit "ログイン", class: "btn btn-dark mt-2" %>
   <% end %>
   </div>
 </div>

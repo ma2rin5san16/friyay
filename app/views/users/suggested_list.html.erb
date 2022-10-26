@@ -1,0 +1,12 @@
+<legend><%= @user.name %>さんが提案した過ごしかた一覧</legend>
+<% @user.tasks.each do |task| %>
+<div class="card bg-secondary mb-3" style="max-width: 100rem;">
+  <div class="card-header">by：<%= link_to "#{task.user.name}", '#'%>さん</div>
+  <div class="card-body">
+    <h4 class="card-title"><%= task.content %></h4>
+    <p class="card-text"><%= task.prepare %></p>
+    <p class="card-text"><%= task.easy_i18n %></p>
+  </div>
+  </div>
+<% end %>
+</div>

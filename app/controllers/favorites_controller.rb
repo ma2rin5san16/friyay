@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
   def toggle_status
     @favorite = Favorite.find(params[:favorite_id])
     @favorite.toggle_status!
-    redirect_to current_user, success: 'ステータスを更新しました'
+    redirect_back fallback_location: root_path, success: 'ステータスを更新しました'
   end
 
   def index

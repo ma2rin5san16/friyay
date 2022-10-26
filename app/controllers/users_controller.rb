@@ -7,11 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    #current_userが提案したタスク一覧を取得
-    @tasks = current_user.tasks
-    #current_userが追加したお気に入り一覧を取得
-    @favorite_tasks = current_user.favorites
+    @user = User.find(params[:id])
   end
 
   def create
@@ -19,6 +15,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path, success: "ユーザーを登録しました"
     else
+      binding.pry
       flash.now[:danger] = "登録に失敗しました"
       render :new
     end
@@ -35,6 +32,14 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def suggested_list
+    @user = User.find(params[:user_id])
+  end
+
+  def favorited_list
+    @user = User.find(params[:user_id])
   end
 
   private
