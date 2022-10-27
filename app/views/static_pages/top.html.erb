@@ -1,2 +1,69 @@
-<%= link_to "ログイン", login_path, class: "btn btn-sm" %>
-<%= link_to "ゲストログイン", guest_sessions_new_path, class: "btn btn-sm " %>
+<div class="container mt-2 text-center">
+  <%= image_tag 'logo.png', width: '30%' %>
+  <figure>
+  <blockquote class="blockquote">
+    <h3>花金とは？</h3>
+    <p class="mb-0">1週間の勤務が済み、土曜・日曜の休みをひかえた、心の浮き立つような金曜日。</p>
+  </blockquote>
+  <figcaption class="blockquote-footer">
+  <cite title="Source Title">広辞苑</cite>
+  </figcaption>
+</figure>
+  <h1><%= countdown_to_friday %></h1>
+   <p>花金の予定を探してみませんか？</p>
+   <div class="d-grid gap-2 mt-3 mb-3">
+    <%= link_to "LOGIN / SIGN UP", login_path,  class:"btn btn-lg btn-primary" %>
+    <%= link_to "LOGIN as GUEST", guest_sessions_new_path,  class:"btn btn-lg btn-primary" %>
+  </div>
+  <div class="row">
+    <div class="card col-lg-4">
+        <div class="card-body">
+        <%= image_tag "search.png" %>
+        <h4 class="card-title">Search</h4>
+        <h6 class="card-subtitle mb-2 text-muted">過ごしかたを探す</h6>
+        <p class="card-text">提案された過ごしかたをランダムで表示させたり、キーワードで検索したりすることができます。</p>
+        </div>
+    </div>
+    <div class="card col-lg-4">
+      <div class="card-body">
+      <%= image_tag "suggest.png" %>
+      <h4 class="card-title">Suggest</h4>
+      <h6 class="card-subtitle mb-2 text-muted">過ごしかたを提案する</h6>
+      <p class="card-text">自分オリジナルの過ごしかたを提案することができます。あなたの素敵な過ごしかたを共有してみませんか？</p>
+      <h6 class="card-subtitle mb-2 text-muted">※ユーザー登録が必要です</h6>
+      </div>
+    </div>
+    <div class="card col-lg-4">
+      <div class="card-body">
+        <%= image_tag "ranking.png", class: "mb-3"%>
+        <h4 class="card-title">Ranking</h4>
+        <h6 class="card-subtitle mb-2 text-muted">過ごしかたランキング</h6>
+        <p class="card-text">お気に入り登録された過ごしかたがランキングで見ることができます。トレンドの過ごしかたが見つかるかも？！</p>
+      </div>
+    </div>
+    <div class="card col-lg-4">
+      <div class="card-body">
+        <%= image_tag "good.png", class: "mb-2"%>
+        <h4 class="card-title mt-3">Like</h4>
+        <h6 class="card-subtitle mb-2 text-muted">お気に入り登録</h6>
+        <p class="card-text">気に入った過ごしかたをお気に入り登録することができます。</p>
+      </div>
+    </div>
+    <div class="card col-lg-4">
+      <div class="card-body">
+        <%= image_tag "comment.png" %>
+        <h4 class="card-title">Rewiew</h4>
+        <h6 class="card-subtitle mb-2 text-muted">評価</h6>
+        <p class="card-text">実際に過ごしてみた感想を評価することができます。</p>
+        <h6 class="card-subtitle mb-2 text-muted">※ユーザー登録が必要です</h6>
+      </div>
+    </div>
+    <div class="card col-lg-4">
+      <div class="card-body">
+        <%= image_tag "sns.png" %>
+        <h4 class="card-title">Share</h4>
+        <h6 class="card-subtitle mb-2 text-muted">SNS連携</h6>
+        <p class="card-text">未実装</p>
+      </div>
+    </div>
+</div>
