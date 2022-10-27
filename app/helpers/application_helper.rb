@@ -18,5 +18,4 @@ module ApplicationHelper
         "金曜日まであと6日"
     end
   end
-
 end

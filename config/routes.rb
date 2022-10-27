@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  root "static_pages#top"
   get 'guest_sessions/new'
   post '/guest_login', to: "guest_sessions#create"
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
-  root to: "ranking#ranking_index_for_desktop"
   resources :users do
     get "suggested_list"
     get "favorited_list"

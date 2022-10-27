@@ -11,120 +11,21 @@
     <%= stylesheet_link_tag "application", mdelia: 'all', "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+  <% if logged_in? %>
   <header>
     <%= render 'layouts/header' %>
     <%= render 'shared/flash_message' %>
   </header>
+  <% end %>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-3">
-          <div class="card mt-3 mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <%= image_tag 'person.png', class: "img-fluid rounded-start" %>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <% if logged_in? %>
-                    <ul class="profile-card-body">
-                      <li><%= current_user.name %></li>
-                      <li><%= current_user.birthday.year %>年生まれ</li>
-                      <li><%= current_user.gender_i18n %></li>
-                    </ul>
-                    <%= link_to logout_path, data: { turbo_method: :delete } do %>
-                      <p class="card-text"><small class="text-muted">ログアウト</small></p>
-                    <% end %>
-                  <% else %>
-                  ログインしてください
-                  <div class="row">
-      <%= link_to "ログイン", login_path, class: "btn btn-sm" %>
-    </div>
-    <div class="row">
-      <%= link_to "ゲストログイン", guest_sessions_new_path, class: "btn btn-sm " %>
-    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="main-table">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="row"></th>
-                  <td>華金データ</td>
-                  <td colspan="2"></td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">◎</th>
-                  <td>提案一覧</td>
-                    <td colspan="2">
-                    <%= link_to '#' do %>
-                      <% if logged_in? %>
-                        <%= current_user.tasks.size %><span>件</span>
-                        <% else %>
-                        <span>-- 件</span>
-                      <% end %>
-                    <% end %>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">◎</th>
-                  <td colspan="2">マイ華金リスト</td>
-                  <td>
-                  <%= link_to '#' do %>
-                      <% if logged_in? %>
-                        <%= current_user.favorites.size %><span>件</span>
-                        <% else %>
-                        <span>-- 件</span>
-                      <% end %>
-                    <% end %>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">・</th>
-                  <td colspan="2">未実行</td>
-                  <td>
-                  <%= link_to current_user do %>
-                      <% if logged_in? %>
-                        <%= current_user.favorites.unevaluated.size %><span>件</span>
-                        <% else %>
-                        <span>-- 件</span>
-                      <% end %>
-                    <% end %>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">・</th>
-                  <td colspan="2">実行済</td>
-                  <td>
-                  <%= link_to current_user do %>
-                      <% if logged_in? %>
-                        <%= current_user.favorites.evaluated.size %><span>件</span>
-                        <% else %>
-                        <span>-- 件</span>
-                      <% end %>
-                    <% end %>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-
-
-
-
-
-
-        </div>
-        <div class="col-9 main-brapper">
-          <%= yield %>
-        </div>
+    <% if logged_in? %>
+      <%= yield %>
+    <% else %>
+      <div class="container mt-2 text-center">
+        <%= image_tag 'logo.png', width: '50%' %>
+        <%= yield %>
       </div>
+      <%= link_to 'ログインページ', login_path %>
+    <% end %>
   </body>
 </html>

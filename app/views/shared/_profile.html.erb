@@ -1,0 +1,16 @@
+<div class="card mt-3 mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <%= image_tag 'person.png', class: "img-fluid rounded-start" %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+          <ul class="profile-card-body">
+            <li><%= current_user.name %></li>
+            <li><%= current_user.birthday.year %>年生まれ</li>
+            <li><%= current_user.gender_i18n %></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
