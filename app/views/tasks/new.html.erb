@@ -12,13 +12,19 @@
     <%= f.label :prepare, "準備内容", class: "form-label" %>
     <%= f.text_field :prepare, class: "form-control", placeholder: "(例) 宅配ピザの手配、観る映画を決めておく、プロジェクターがあると尚良し！" %>
   </div>
-  <div class="mb-3">
-    <%= f.label :easy_easy, "手軽" %>
-    <%= f.radio_button :easy, :easy %>
-    <%= f.label :easy_normal, "やや手軽" %>
-    <%= f.radio_button :easy, :normal %>
-    <%= f.label :easy_difficult, "難しい" %>
-    <%= f.radio_button :easy, :difficult %><br>
+  <div class="form-grou mb-3">
+    <div class="form-check">
+      <%= f.radio_button :easy, :easy %>
+      <%= f.label :easy_easy, "手軽" %>
+    </div>
+    <div class="form-check">
+      <%= f.radio_button :easy, :normal %>
+      <%= f.label :easy_normal, "やや手軽" %>
+    </div>
+    <div class="form-check">
+      <%= f.radio_button :easy, :difficult %>
+      <%= f.label :easy_difficult, "難しい" %>
+    </div>
   </div>
   <div class="mb-3">
     <%= f.submit "登録" %>
