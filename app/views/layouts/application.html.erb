@@ -17,15 +17,7 @@
     <%= render 'shared/flash_message' %>
   </header>
   <% end %>
-  <body>
-    <% if logged_in? %>
+  <body style="padding-top: 5rem">
       <%= yield %>
-    <% else %>
-      <div class="container mt-2 text-center">
-        <%= image_tag 'logo.png', width: '50%' %>
-        <%= yield %>
-      </div>
-      <%= link_to 'ログインページ', login_path %>
-    <% end %>
   </body>
 </html>
