@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   before_action :set_q, only:[:index, :search]
 
   def index
-    @tasks = @q.result.order(created_at: :desc)
+    @tasks = @q.result.order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -37,6 +37,7 @@ class TasksController < ApplicationController
   def random_show
     @task = Task.order("RAND()").first
     @favorite = Favorite.find_by(user_id: current_user.id, task_id: @task.id)
+    @favorites= @task.favorites.order(created_at: :desc).page(params[:page])
   end
 
   private

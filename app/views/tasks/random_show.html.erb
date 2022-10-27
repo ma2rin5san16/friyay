@@ -13,7 +13,8 @@
 </div>
 
  <legend>実行した人の評価</legend>
-  <% @task.favorites.each do |favorite| %>
+ <%= paginate @favorites, theme: 'bootstrap-5' %>
+  <% @favorites.each do |favorite| %>
   <% if favorite.rating.present? || favorite.comment.present? %>
     <div class="card border-secondary mb-3" style="max-width: 100rem;">
       <div class="card-header"><%= favorite.user.name %>さん</div>
