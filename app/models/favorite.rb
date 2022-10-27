@@ -2,14 +2,14 @@ class Favorite < ApplicationRecord
   belongs_to :user
   belongs_to :task
 
-  validates :comment, length: { maximum: 255}
+  validates :comment, length: { maximum: 255 }
   validates :rating, numericality: { only_integer: true,
                                      allow_nil: true,
                                      greater_than_or_equal_to: 1,
                                      less_than_or_equal_to: 5
                                     }
 
-  #statusが未達成の時、コメントと評価ができないバリデーション
+  #statusがunevaluatedの時、コメントと評価ができないバリデーション
   validates :comment, :rating, absence: true, if: -> { unevaluated? }
 
   validates_uniqueness_of :task_id, scope: :user_id
@@ -26,6 +26,4 @@ class Favorite < ApplicationRecord
       unevaluated!
     end
   end
-
-  #statusがunevaluatedになったらcommentとratingがnilになるインスタンスメソッド
 end

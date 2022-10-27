@@ -9,8 +9,19 @@
       <% else %>
         <span class="card-text badge bg-success" ><%= link_to favorite.status_i18n, task_favorite_toggle_status_path(favorite.task, favorite), method: :patch %></span>
         <span class="card-text"><%= link_to "評価する", edit_task_favorite_path(favorite.task, favorite) %></span>
+        <span><div class="evaluation" data-score="<%= favorite.rating %>"></div><span>
+        <span>コメント：<%= favorite.comment %><span>
       <% end %>
     </div>
   </div>
 <% end %>
-
+<script>
+  $('.evaluation').empty();
+  $('.evaluation').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>

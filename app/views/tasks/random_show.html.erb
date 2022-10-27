@@ -1,5 +1,6 @@
 <legend>過ごしかた詳細</legend>
 
+<turbo-frame id="message">
 <div class="card border-secondary mb-3" style="max-width: 100rem;">
   <div class="card-header">by：<%= link_to "#{@task.user.name}", user_path(@task.user) %>さん</div>
   <div class="card-body">
@@ -13,19 +14,24 @@
 
  <legend>実行した人の評価</legend>
   <% @task.favorites.each do |favorite| %>
+  <% if favorite.rating.present? || favorite.comment.present? %>
     <div class="card border-secondary mb-3" style="max-width: 100rem;">
       <div class="card-header"><%= favorite.user.name %>さん</div>
       <div class="card-body">
+         <% unless favorite.rating.nil? %>
         <h4 class="card-title">
           <div class="evaluation" data-score="<%= favorite.rating %>"></div>
         </h4>
+        <% end %>
         <p class="card-text"><%= favorite.comment %></p>
        </div>
     </div>
   <% end %>
+  <% end %>
   </div>
 </div>
 <script>
+  $('.evaluation').empty();
   $('.evaluation').raty({
     readOnly: true,
     score: function() {
@@ -34,3 +40,5 @@
     path: '/assets/'
   });
 </script>
+</turbo-frame>
+

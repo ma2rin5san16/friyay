@@ -1,7 +1,6 @@
 class FavoritesController < ApplicationController
   before_action :set_task, only:[:edit, :update, :create, :destroy]
   before_action :set_favorite, only:[:edit, :update]
-  before_action :status_evaluated?, only:[:edit, :update]
   before_action :only_register_user, only:[:toggle_status, :edit, :update]
 
   def toggle_status
@@ -31,7 +30,7 @@ class FavoritesController < ApplicationController
 
   def update
     if @favorite.update(rating_params)
-      redirect_to current_user, success: "評価しました"
+      redirect_to user_favorited_list_path(current_user), success: "評価しました"
     else
       flash.now[:danger] = "評価に失敗しました"
       render 'edit'
