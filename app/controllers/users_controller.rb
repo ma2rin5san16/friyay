@@ -38,10 +38,12 @@ class UsersController < ApplicationController
 
   def suggested_list
     @user = User.find(params[:user_id])
+    @tasks = @user.tasks.order(created_at: :desc).page(params[:page])
   end
 
   def favorited_list
     @user = User.find(params[:user_id])
+    @favorites = @user.favorites.order(created_at: :desc).page(params[:page])
   end
 
   private

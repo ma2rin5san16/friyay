@@ -1,4 +1,5 @@
-<% @user.favorites.each do |favorite| %>
+<%= paginate @favorites, theme: 'bootstrap-5' %>
+<% @favorites.each do |favorite| %>
   <div class="card border-secondary mb-3" style="max-width: 100rem;">
     <div class="card-body">
       <h4 class="card-title"><%= favorite.task.content %></h4>

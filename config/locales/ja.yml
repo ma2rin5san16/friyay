@@ -13,3 +13,10 @@ ja:
       status:
         unevaluated: 未実行
         evaluated: 実行済
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "..."
