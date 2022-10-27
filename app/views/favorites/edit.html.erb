@@ -15,6 +15,7 @@
 
   <!-- 評価javascript -->
   <script>
+$('#star').empty();
 $('#star').raty({
   size     : 36,
   starOff:  '<%= asset_path('star-off.png') %>',
@@ -24,7 +25,7 @@ $('#star').raty({
 </script>
 
   <div class="mb-3">
-    <%= f.submit "投稿する" %>
+    <%= f.submit "評価する", class: "btn btn-primary" %>
   </div>
 <% end %>
 </div>
