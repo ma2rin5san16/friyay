@@ -13,6 +13,7 @@
         <span><div class="evaluation" data-score="<%= favorite.rating %>"></div><span>
         <span>コメント：<%= favorite.comment %><span>
       <% end %>
+      <p class="card-text"><%= render partial: 'favorites/unfavorite', locals: { task: favorite.task, favorite: favorite } %></p>
     </div>
   </div>
 <% end %>

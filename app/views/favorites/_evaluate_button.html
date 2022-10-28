@@ -1,5 +1,0 @@
-<% if !Favorite.exists?(user: current_user, task: @task) %>
-  <%= render 'favorites/favorite' %>
-<% else %>
-  <%= render 'favorites/unfavorite' %>
-<% end %>
