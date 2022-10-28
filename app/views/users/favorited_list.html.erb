@@ -1,22 +1,25 @@
-<%= paginate @favorites, theme: 'bootstrap-5' %>
-<% @favorites.each do |favorite| %>
-  <div class="card border-secondary mb-3" style="max-width: 100rem;">
-    <div class="card-body">
-      <h4 class="card-title"><%= favorite.task.content %></h4>
-      <p class="card-title"><%= favorite.task.prepare %></p>
-      <p class="card-title"><%= favorite.task.easy_i18n %></p>
-      <% if favorite.unevaluated? %>
-        <span class="card-text badge bg-warning" ><%= link_to favorite.status_i18n, task_favorite_toggle_status_path(favorite.task, favorite), method: :patch %></span>
-      <% else %>
-        <span class="card-text badge bg-success" ><%= link_to favorite.status_i18n, task_favorite_toggle_status_path(favorite.task, favorite), method: :patch %></span>
-        <span class="card-text"><%= link_to "評価する", edit_task_favorite_path(favorite.task, favorite) %></span>
-        <span><div class="evaluation" data-score="<%= favorite.rating %>"></div><span>
-        <span>コメント：<%= favorite.comment %><span>
-      <% end %>
-      <p class="card-text"><%= render partial: 'favorites/unfavorite', locals: { task: favorite.task, favorite: favorite } %></p>
+<div class="container">
+  <legend><%= link_to @user.name, user_path(@user) %>さんの気になるリスト</legend>
+  <%= paginate @favorites, theme: 'bootstrap-5' %>
+  <% @favorites.each do |favorite| %>
+    <div class="card border-secondary mb-3" style="max-width: 100rem;">
+      <div class="card-body">
+        <h4 class="card-title"><%= favorite.task.content %></h4>
+        <p class="card-title"><%= favorite.task.prepare %></p>
+        <p class="card-title"><%= favorite.task.easy_i18n %></p>
+        <% if favorite.unevaluated? %>
+          <span class="card-text badge bg-warning" ><%= link_to favorite.status_i18n, task_favorite_toggle_status_path(favorite.task, favorite), method: :patch %></span>
+        <% else %>
+          <span class="card-text badge bg-success" ><%= link_to favorite.status_i18n, task_favorite_toggle_status_path(favorite.task, favorite), method: :patch %></span>
+          <span class="card-text"><%= link_to "評価する", edit_task_favorite_path(favorite.task, favorite) %></span>
+          <span><div class="evaluation" data-score="<%= favorite.rating %>"></div><span>
+          <span>コメント：<%= favorite.comment %><span>
+        <% end %>
+        <p class="card-text"><%= render partial: 'favorites/unfavorite', locals: { task: favorite.task, favorite: favorite } %></p>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 <script>
   $('.evaluation').empty();
   $('.evaluation').raty({

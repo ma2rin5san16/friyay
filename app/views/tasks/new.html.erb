@@ -1,7 +1,6 @@
 <div class="container">
-  <h2>華金の過ごしかたを提案してみませんか？</h2>
-  <p>あなたのとっておきの華金を提案してましょう！</p>
-  <p>どんな小さなことでも構いません！気軽に提案してみましょう！</p>
+  <legend>提案する</legend>
+  <%= render 'layouts/error_messages', object: @task %>
 
 <%= form_with model: @task, local: true, data: { turbo: false } do |f| %>
   <div class="mb-3">
