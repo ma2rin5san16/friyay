@@ -28,8 +28,7 @@ class TasksController < ApplicationController
     @user = User.find_by(id: @task.user_id)
   end
 
-  def edit
-  end
+  def edit;end
 
   def search
     @results = @q.result

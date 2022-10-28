@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    models:
+      # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
+      user: ユーザー
+      tasl: 過ごしかた
+    # model毎に定義したいattributesを記述
+    attributes:
+        user:
+          # view側： User.human_attribute_name :name => "名前" /　t("activerecord.attributes.user.name")と同じ
+          name: 名前
+          email: メールアドレス
+          birthday: 誕生日
+          gender: 性別
+          password: パスワード
+          password_confirmation: パスワード(確認)
+        task:
+          content: 過ごしかた
+          prepare: 準備内容
+          easy: 手軽度
+  # 全てのmodelで共通して使用するattributesを定義
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日
