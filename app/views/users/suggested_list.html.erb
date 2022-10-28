@@ -7,6 +7,7 @@
     <h4 class="card-title"><%= task.content %></h4>
     <p class="card-text"><%= task.prepare %></p>
     <p class="card-text"><%= task.easy_i18n %></p>
+    <span><%= render partial: 'favorites/favorite_button', locals:{ task: task } %></span>
   </div>
   </div>
 <% end %>

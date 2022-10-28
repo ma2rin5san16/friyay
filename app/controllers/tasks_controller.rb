@@ -5,6 +5,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = @q.result.order(created_at: :desc).page(params[:page])
+    @favorite = Favorite.find_by(user_id: current_user.id)
   end
 
   def new

@@ -1,5 +1,5 @@
-<% if !Favorite.exists?(user: current_user, task: @task) %>
-  <%= render 'favorites/favorite' %>
+<% if !Favorite.exists?(user: current_user, task_id: task.id) %>
+  <%= render 'favorites/favorite', task: task %>
 <% else %>
-  <%= render 'favorites/unfavorite' %>
+  <%= render partial: 'favorites/unfavorite', locals: { task: task, favorite: @favorite } %>
 <% end %>

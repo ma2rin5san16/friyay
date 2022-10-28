@@ -1,8 +1,0 @@
-<% tasks.each do |task| %>
-    <div class="task-list">
-      <div class="task-belongs-to">提案者：<%= link_to "#{task.user.name}", '#'%>さん</div>
-      <div class="task-content"><%= task.content %></div>
-      <div class="task-prepare"><%= task.prepare %></div>
-      <div class="task-easy"><%= task.easy_i18n %></div>
-    </div>
-  <% end %>

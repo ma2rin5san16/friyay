@@ -17,7 +17,6 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path, success: "ユーザーを登録しました"
     else
-      binding.pry
       flash.now[:danger] = "登録に失敗しました"
       render :new
     end
@@ -39,11 +38,13 @@ class UsersController < ApplicationController
   def suggested_list
     @user = User.find(params[:user_id])
     @tasks = @user.tasks.order(created_at: :desc).page(params[:page])
+    @favorite = Favorite.find_by(user_id: current_user.id)
   end
 
   def favorited_list
     @user = User.find(params[:user_id])
     @favorites = @user.favorites.order(created_at: :desc).page(params[:page])
+    @favorite = Favorite.find_by(user_id: current_user.id)
   end
 
   private
