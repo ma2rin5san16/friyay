@@ -11,13 +11,16 @@
     <%= stylesheet_link_tag "application", mdelia: 'all', "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+  <body style="padding-top: 5rem">
   <% if logged_in? %>
   <header>
     <%= render 'layouts/header' %>
     <%= render 'shared/flash_message' %>
   </header>
   <% end %>
-  <body style="padding-top: 5rem">
-      <%= yield %>
-  </body>
+  <%= yield %>
+  <footer>
+    <%= render 'layouts/footer' %>
+  </footer>
+</body>
 </html>
