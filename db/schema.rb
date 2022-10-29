@@ -11,7 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_10_20_000835) do
-  create_table "favorites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "task_id", null: false
     t.datetime "created_at", null: false
@@ -23,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_000835) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "tasks", force: :cascade do |t|
     t.string "content", null: false
     t.string "prepare"
     t.integer "easy", null: false
@@ -33,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_000835) do
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
     t.date "birthday", null: false
