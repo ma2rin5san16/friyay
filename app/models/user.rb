@@ -20,4 +20,8 @@ class User < ApplicationRecord
   #validates :guest, default: false, null: false
 
   enum gender: { male: 0, female: 1 }
+
+  def generate_1990
+    User.where(birthday: Time.local(1990,1,1)..Time.local(1999,12,31))
+  end
 end
