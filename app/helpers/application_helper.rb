@@ -1,5 +1,5 @@
 module ApplicationHelper
-  require 'Date'
+  require 'date'
 
   def countdown_to_friday
     if Date.today.wday == 5
