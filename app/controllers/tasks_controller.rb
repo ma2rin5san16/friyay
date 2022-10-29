@@ -35,7 +35,7 @@ class TasksController < ApplicationController
   end
 
   def random_show
-    @task = Task.order("RAND()").first
+    @task = Task.order("RANDOM()").first
     @favorite = Favorite.find_by(user_id: current_user.id, task_id: @task.id)
     @favorites= @task.favorites.order(created_at: :desc).page(params[:page])
   end
