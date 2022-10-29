@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="container col-lg-11">
+  <h4>週間ランキング</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">順位</th>
+        <th scope="col">過ごしかた案</th>
+        <th scope="col">お気に入り数</th>
+        <th scope="col">提案者</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @weekly_all_rank.each.with_index(1) do |task, i| %>
+      <tr>
+        <th scope="row"><%= i %></th>
+        <td><%= task.content %></td>
+        <td><%= task.favorites.count %></td>
+        <td><%= link_to task.user.name, user_path(task.user) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="container col-lg-11">
+  <h4>合計ランキング</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">順位</th>
+        <th scope="col">過ごしかた案</th>
+        <th scope="col">お気に入り数</th>
+        <th scope="col">提案者</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @all_rank.each.with_index(1) do |task, i| %>
+      <tr>
+        <th scope="row"><%= i %></th>
+        <td><%= task.content %></td>
+        <td><%= task.favorites.count %></td>
+        <td><%= link_to task.user.name, user_path(task.user) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
