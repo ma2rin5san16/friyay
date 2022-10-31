@@ -1,4 +1,4 @@
-# 華金の過ごし方提案アプリ
+# fliYAY（花金の過ごし方提案アプリ）
 
 ## ■ サービス概要
 せっかくの金曜日の夜を無駄にしない、充実した時間を過ごすための予定を提案してくれるアプリです。  
@@ -58,4 +58,4 @@ README〜ER図作成：- 9/11
 本番リリース：11月中旬  
 
 ## ■資料
-<span></span><a href="https://drive.google.com/file/d/1-LvS2FlxxzCDU5y10V_OQVgsjQj1mMsx/view?usp=sharing"><i class="fa fa-link"></i></a>ER図</span>
+<span><a href="https://drive.google.com/file/d/1-LvS2FlxxzCDU5y10V_OQVgsjQj1mMsx/view?usp=sharing"><i class="fa fa-link"></i></a>ER図</span>
