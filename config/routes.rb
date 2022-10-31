@@ -9,14 +9,13 @@ Rails.application.routes.draw do
     get "suggested_list"
     get "favorited_list"
   end
-  resources :tasks do
+  resources :tasks, only: %i[index new create] do
     get "random_show"
-    resources :favorites, only: [:create, :destroy, :edit, :update] do
+    resources :favorites, only: %i[create destroy edit update] do
       patch "toggle_status"
     end
   end
-  resources :random_tasks, only:[:show]
-  resources :rankings, only:[:index]
+  resources :rankings, only: %i[index]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")

@@ -1,6 +1,6 @@
 <div class="container">
   <legend>提案する</legend>
-  <%= render 'layouts/error_messages', object: @task %>
+  <%= render 'shared/error_messages', object: @task %>
 
 <%= form_with model: @task, local: true, data: { turbo: false } do |f| %>
   <div class="mb-3">
@@ -14,15 +14,15 @@
   <div class="form-grou mb-3">
     <div class="form-check">
       <%= f.radio_button :easy, :easy %>
-      <%= f.label :easy_easy, "手軽" %>
+      <%= f.label :easy_easy, "かなり手軽" %>
     </div>
     <div class="form-check">
       <%= f.radio_button :easy, :normal %>
-      <%= f.label :easy_normal, "やや手軽" %>
+      <%= f.label :easy_normal, "そこそこ手軽" %>
     </div>
     <div class="form-check">
       <%= f.radio_button :easy, :difficult %>
-      <%= f.label :easy_difficult, "難しい" %>
+      <%= f.label :easy_difficult, "手軽ではない" %>
     </div>
   </div>
   <div class="mb-3">

@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
-  before_action :only_register_user, only:[:edit, :update, :destroy]
-
-  def index
-  end
+  before_action :only_register_user, only: %i[edit update]
 
   def new
     @user = User.new
@@ -29,8 +26,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to users_path
+      redirect_to users_path, success: "登録内容を編集しました"
     else
+      flash.now[:danger] = "登録に失敗しました"
       render :edit
     end
   end

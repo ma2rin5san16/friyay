@@ -6,9 +6,9 @@ ja:
         female: 女性
     task:
       easy:
-        easy: 手軽
-        normal: やや手軽
-        difficult: 難しい
+        easy: かなり手軽
+        normal: そこそこ手軽
+        difficult: 手軽ではない
     favorite:
       status:
         unevaluated: 未実行
