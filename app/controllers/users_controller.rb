@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to users_path, success: "登録内容を編集しました"
+      redirect_to user_path, success: "登録内容を編集しました"
     else
       flash.now[:danger] = "登録に失敗しました"
       render :edit
