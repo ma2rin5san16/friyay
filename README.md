@@ -20,7 +20,7 @@
 - 華金の過ごし方や予定案を気軽に見ることができる。
 - ユーザー同士で個性的・風変わりな過ごし方を提案し合うことができる。  
 
-## 実装予定の機能
+## ■実装予定の機能
 - ログイン機能
 - 予定案の提案投稿、いいね機能、ランキング表示
 - 予定案の検索機能、ランダム表示  
@@ -56,3 +56,6 @@ README〜ER図作成：- 9/11
 メイン機能実装：9/12 -  
 β版をRUNTEQ内リリース（MVP）： - 10/31  
 本番リリース：11月中旬  
+
+## ■資料
+<span<a href="https://drive.google.com/file/d/1-LvS2FlxxzCDU5y10V_OQVgsjQj1mMsx/view?usp=sharing"><i class="fa fa-link"></i></a>ER図</span>
