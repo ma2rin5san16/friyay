@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get "suggested_list"
     get "favorited_list"
   end
-  resources :tasks, only: %i[index new create] do
+  resources :tasks, only: %i[index new create edit update destroy] do
     get "random_show"
     resources :favorites, only: %i[create destroy edit update] do
       patch "toggle_status"
