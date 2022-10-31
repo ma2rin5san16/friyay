@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
-  before_action :set_task, only:[:edit, :update, :create, :destroy]
-  before_action :set_favorite, only:[:edit, :update]
-  before_action :only_register_user, only:[:toggle_status, :edit, :update]
+  before_action :set_task, only: %i[edit update create destroy]
+  before_action :set_favorite, only: %i[edit update]
+  before_action :only_register_user, only: %i[toggle_status edit update]
 
   def toggle_status
     @favorite = Favorite.find(params[:favorite_id])

@@ -1,6 +1,6 @@
 class RankingsController < ApplicationController
+  before_action :logged_in_user
 
-  #1週間のうちにお気に入り登録されたランキング
   def index
     #1週間のうちにお気に入り登録されたランキング
     @weekly_all_rank = Task.find(Favorite.group(:task_id).where(created_at: Time.current.all_week).order('count(task_id) desc').limit(3).pluck(:task_id))
