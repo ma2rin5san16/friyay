@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  before_action :logged_in_user, only: %i[new create destroy index]
-  before_action :only_register_user, only: %i[new create destroy]
+  before_action :logged_in_user
+  before_action :only_register_user, only: %i[new create destroy edit update]
   before_action :set_q, only: %i[index search]
 
   def index
@@ -20,6 +20,32 @@ class TasksController < ApplicationController
     else
       flash.now[:danger] = "投稿に失敗しました"
       render :new
+    end
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.user == current_user
+      @task.update(task_params) 
+      redirect_to user_suggested_list_path(current_user), success: "更新しました。"
+    else
+      flash.now[:danger] = "更新に失敗しました。"
+      render 'edit'
+    end
+  end
+
+  def destroy
+    task = Task.find(params[:id])
+    if task.user == current_user
+      task.destroy
+      redirect_to user_suggested_list_path(current_user), success: "削除しました。"
+    else
+      flash.now[:danger] = "無効な権限です"
+      root_path
     end
   end
 

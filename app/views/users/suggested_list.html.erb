@@ -10,6 +10,12 @@
         <p class="card-text"><%= task.prepare %></p>
         <p class="card-text"><%= task.easy_i18n %></p>
         <span><%= render partial: 'favorites/favorite_button', locals:{ task: task } %></span>
+        <% if task.user == current_user %>
+          <p class="card-text">
+            <%= link_to 'edit', edit_task_path(task) %>
+            <%= link_to "delete", task_path(task), method: :delete, data: {confirm: "削除しますか？"} %>
+          <p>
+        <% end %>
       </div>
     </div>
   <% end %>
