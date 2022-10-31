@@ -58,4 +58,4 @@ README〜ER図作成：- 9/11
 本番リリース：11月中旬  
 
 ## ■資料
-<span<a href="https://drive.google.com/file/d/1-LvS2FlxxzCDU5y10V_OQVgsjQj1mMsx/view?usp=sharing"><i class="fa fa-link"></i></a>ER図</span>
+<span></span><a href="https://drive.google.com/file/d/1-LvS2FlxxzCDU5y10V_OQVgsjQj1mMsx/view?usp=sharing"><i class="fa fa-link"></i></a>ER図</span>
