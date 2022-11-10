@@ -19,7 +19,7 @@
     <div class="card col-lg-4">
         <div class="card-body">
         <%= image_tag "search.png" %>
-        <h4 class="card-title">Search</h4>
+        <h4><%= link_to "Search", task_random_show_path(:task_id), class:"card-title" %></h4>
         <h6 class="card-subtitle mb-2 text-muted">過ごしかたを探す</h6>
         <p class="card-text">提案された過ごしかたをランダムで表示させたり、キーワードで検索したりすることができます。</p>
         </div>
@@ -27,7 +27,7 @@
     <div class="card col-lg-4">
       <div class="card-body">
       <%= image_tag "suggest.png" %>
-      <h4 class="card-title">Suggest</h4>
+      <h4><%= link_to "Suggest", new_task_path, class:"card-title" %></h4>
       <h6 class="card-subtitle mb-2 text-muted">過ごしかたを提案する</h6>
       <p class="card-text">自分オリジナルの過ごしかたを提案することができます。あなたの素敵な過ごしかたを共有してみませんか？</p>
       <h6 class="card-subtitle mb-2 text-muted">※ユーザー登録が必要です</h6>
@@ -36,7 +36,7 @@
     <div class="card col-lg-4">
       <div class="card-body">
         <%= image_tag "ranking.png", class: "mb-3"%>
-        <h4 class="card-title">Ranking</h4>
+        <h4><%= link_to "Ranking", rankings_path, class: "card-title" %></h4>
         <h6 class="card-subtitle mb-2 text-muted">過ごしかたランキング</h6>
         <p class="card-text">お気に入り登録された過ごしかたがランキングで見ることができます。トレンドの過ごしかたが見つかるかも？！</p>
       </div>
@@ -44,7 +44,7 @@
     <div class="card col-lg-4">
       <div class="card-body">
         <%= image_tag "good.png", class: "mb-2"%>
-        <h4 class="card-title mt-3">Like</h4>
+        <h4><%= link_to "Like", user_favorited_list_path(current_user), class: "card-title mt-3" %></h4>
         <h6 class="card-subtitle mb-2 text-muted">お気に入り登録</h6>
         <p class="card-text">気に入った過ごしかたをお気に入り登録することができます。</p>
       </div>
@@ -52,7 +52,7 @@
     <div class="card col-lg-4">
       <div class="card-body">
         <%= image_tag "comment.png" %>
-        <h4 class="card-title">Rewiew</h4>
+        <h4><%= link_to "Review", user_favorited_list_path(current_user), class: "card-title mt-3" %></h4>
         <h6 class="card-subtitle mb-2 text-muted">評価</h6>
         <p class="card-text">実際に過ごしてみた感想を評価することができます。</p>
         <h6 class="card-subtitle mb-2 text-muted">※ユーザー登録が必要です</h6>
