@@ -13,7 +13,6 @@ class GuestSessionsController < ApplicationController
       log_in user
       redirect_to root_path, success: 'ゲストログインとしてログインしました'
     else
-      #あとで消す
       flash.now[:danger] = "ログインできませんでした"
       render 'new'
     end

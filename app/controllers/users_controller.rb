@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :only_register_user, only: %i[edit update]
-  before_action :logged_in_user, except: %i[new create ]
+  before_action :only_register_user, only: %i[edit update suggested_list]
+  before_action :logged_in_user, except: %i[new create]
 
   def new
     @user = User.new
