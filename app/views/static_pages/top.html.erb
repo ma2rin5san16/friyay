@@ -11,10 +11,9 @@
 </figure>
   <h1><%= countdown_to_friday %></h1>
    <p>花金の予定を探してみませんか？</p>
-   <div class="d-grid gap-2 mt-3 mb-3">
-    <%= link_to "LOGIN / SIGN UP", login_path,  class:"btn btn-lg btn-primary" %>
-    <%= link_to "LOGIN as GUEST", guest_sessions_new_path,  class:"btn btn-lg btn-primary" %>
-  </div>
+   <% if !logged_in? %>
+     <%= render 'shared/login_button' %>
+    <% end %>
   <div class="row">
     <div class="card col-lg-4">
         <div class="card-body">
@@ -44,7 +43,7 @@
     <div class="card col-lg-4">
       <div class="card-body">
         <%= image_tag "good.png", class: "mb-2"%>
-        <h4><%= link_to "Like", user_favorited_list_path(current_user), class: "card-title mt-3" %></h4>
+        <h4><%= link_to "Like", '#', class: "card-title mt-3" %></h4>
         <h6 class="card-subtitle mb-2 text-muted">お気に入り登録</h6>
         <p class="card-text">気に入った過ごしかたをお気に入り登録することができます。</p>
       </div>
@@ -52,7 +51,7 @@
     <div class="card col-lg-4">
       <div class="card-body">
         <%= image_tag "comment.png" %>
-        <h4><%= link_to "Review", user_favorited_list_path(current_user), class: "card-title mt-3" %></h4>
+        <h4><%= link_to "Review", '#', class: "card-title mt-3" %></h4>
         <h6 class="card-subtitle mb-2 text-muted">評価</h6>
         <p class="card-text">実際に過ごしてみた感想を評価することができます。</p>
         <h6 class="card-subtitle mb-2 text-muted">※ユーザー登録が必要です</h6>
