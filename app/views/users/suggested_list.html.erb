@@ -1,10 +1,10 @@
 <turbo-frame id="suggest-list">
 <div class="container">
-  <legend><%= link_to @user.name, user_path(@user) %>さんが提案した過ごしかた一覧</legend>
+  <legend><%= current_user.name %>さんが提案した過ごしかた一覧</legend>
   <%= paginate @tasks , theme: 'bootstrap-5' %>
   <% @tasks.each do |task| %>
     <div class="card border-secondary mb-3" style="max-width: 100rem;">
-      <div class="card-header">by：<%= link_to "#{task.user.name}", '#'%>さん</div>
+      <div class="card-header">by：<%= current_user.name %>さん</div>
       <div class="card-body">
         <h4 class="card-title"><%= task.content %></h4>
         <p class="card-text"><%= task.prepare %></p>

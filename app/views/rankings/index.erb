@@ -16,7 +16,7 @@
         <th scope="row"><%= i %></th>
         <td><%= task.content %></td>
         <td><%= task.favorites.count %></td>
-        <td><%= link_to task.user.name, user_path(task.user) %></td>
+        <td><%= task.user.name %>さん</td>
       </tr>
       <% end %>
     </tbody>
@@ -40,7 +40,7 @@
         <th scope="row"><%= i %></th>
         <td><%= task.content %></td>
         <td><%= task.favorites.count %></td>
-        <td><%= link_to task.user.name, user_path(task.user) %></td>
+        <td><%= task.user.name %>さん</td>
       </tr>
       <% end %>
     </tbody>

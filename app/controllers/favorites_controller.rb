@@ -31,7 +31,7 @@ class FavoritesController < ApplicationController
 
   def update
     if @favorite.update(rating_params)
-      redirect_to user_favorited_list_path(current_user), success: "評価しました"
+      redirect_to favorited_list_path, success: "評価しました"
     else
       flash.now[:danger] = "評価に失敗しました"
       render 'edit'
