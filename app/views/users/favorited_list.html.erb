@@ -1,5 +1,5 @@
 <div class="container">
-  <legend><%= link_to @user.name, user_path(@user) %>さんの気になるリスト</legend>
+  <legend><%= current_user.name %>さんの気になるリスト</legend>
   <%= paginate @favorites, theme: 'bootstrap-5' %>
   <% @favorites.each do |favorite| %>
     <div class="card border-secondary mb-3" style="max-width: 100rem;">
