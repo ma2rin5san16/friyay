@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_action :logged_in_user
   before_action :only_register_user, only: %i[new create destroy edit update]
   before_action :set_q, only: %i[index search]
+  before_action :set_task, only: %i[edit update destroy]
 
   def index
     @tasks = @q.result.order(created_at: :desc).page(params[:page])
@@ -16,22 +17,19 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user_id = current_user.id
     if @task.save
-      redirect_to root_path, success: '過ごし方を提案しました'
+      redirect_to new_task_path, success: '過ごし方を提案しました'
     else
       flash.now[:danger] = "投稿に失敗しました"
       render :new
     end
   end
 
-  def edit
-    @task = Task.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @task = Task.find(params[:id])
     if @task.user == current_user
       @task.update(task_params) 
-      redirect_to user_suggested_list_path(current_user), success: "更新しました。"
+      redirect_to suggested_list_path, success: "更新しました。"
     else
       flash.now[:danger] = "更新に失敗しました。"
       render 'edit'
@@ -39,7 +37,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    task = Task.find(params[:id])
     if task.user == current_user
       task.destroy
       redirect_to user_suggested_list_path(current_user), success: "削除しました。"
@@ -50,7 +47,8 @@ class TasksController < ApplicationController
   end
 
   def random_show
-    @task = Task.order("RANDOM()").first
+    @tasks = Task.all
+    @task = @tasks.shuffle.first
     @favorite = Favorite.find_by(user_id: current_user.id, task_id: @task.id)
     @favorites= @task.favorites.order(created_at: :desc).page(params[:page])
   end
@@ -63,5 +61,9 @@ class TasksController < ApplicationController
 
     def set_q
       @q = Task.ransack(params[:q])
+    end
+
+    def set_task
+      @task = Task.find(params[:id])
     end
 end
