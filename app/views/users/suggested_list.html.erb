@@ -9,7 +9,8 @@
         <h4 class="card-title"><%= task.content %></h4>
         <p class="card-text"><%= task.prepare %></p>
         <p class="card-text"><%= task.easy_i18n %></p>
-        <span><%= render partial: 'favorites/favorite_button', locals:{ task: task } %></span>
+        <%= render 'shared/place_tag', task: task %>
+        <p><%= render partial: 'favorites/favorite_button', locals:{ task: task } %></p>
         <% if task.user == current_user %>
           <p class="card-text">
             <%= link_to 'edit', edit_task_path(task) %>

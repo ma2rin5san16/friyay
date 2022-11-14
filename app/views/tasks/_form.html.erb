@@ -7,20 +7,36 @@
     <%= f.label :prepare, "準備内容", class: "form-label" %>
     <%= f.text_field :prepare, class: "form-control", placeholder: "(例) 宅配ピザの手配、観る映画を決めておく、プロジェクターがあると尚良し！" %>
   </div>
-  <div class="form-grou mb-3">
-    <div class="form-check">
+  <div class="form-group mb-3">
+    <%= f.label :easy, "手軽度", class: "form-label" %><br>
+    <div class="form-check form-check-inline">
       <%= f.radio_button :easy, :easy %>
       <%= f.label :easy_easy, "かなり手軽" %>
     </div>
-    <div class="form-check">
+    <div class="form-check form-check-inline">
       <%= f.radio_button :easy, :normal %>
       <%= f.label :easy_normal, "そこそこ手軽" %>
     </div>
-    <div class="form-check">
+    <div class="form-check form-check-inline">
       <%= f.radio_button :easy, :difficult %>
       <%= f.label :easy_difficult, "手軽ではない" %>
     </div>
   </div>
+
+  <div class="form-group mb-3">
+    <%= f.label :place, "場所", class: "form-label" %><small class="form-text text-muted">（複数選択可）</small><br>
+    <%= f.collection_check_boxes(:place_ids, Place.all, :id, :name) do |place| %>
+      <div class="form-check form-check-inline">
+        <%= place.label class: "form-check-label" do %>
+          <%= place.check_box %>
+          <%= place.text %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+
   <div class="mb-3">
     <%= f.submit "登録" %>
   </div>

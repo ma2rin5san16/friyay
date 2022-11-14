@@ -3,7 +3,8 @@
   <form class="d-flex mb-2">
     <%= search_form_for @q, url: tasks_path do |f| %>
       <%= f.search_field :content_cont, class:"form-control me-sm-2", placeholder:"過ごしかた検索" %>
-      <%= f.select :easy_eq, Task.easies_i18n.invert.map { |key, value| [key, Task.easies[value]]}, include_blank:'指定なし', class:"form-control me-sm-2" %>
+      <%= f.select :easy_eq, Task.easies_i18n.invert.map { |key, value| [key, Task.easies[value]]}, { include_blank: "手軽度" }, { class:"form-select" } %>
+      <%= f.select :places_id_eq, options_from_collection_for_select(Place.all, :id, :name), { include_blank: "場所"} , { class:"form-select" } %>
       <%= f.submit "検索", class:"btn btn-secondary my-2 my-sm-0" %>
     <% end %>
   </form>

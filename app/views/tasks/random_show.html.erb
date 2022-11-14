@@ -7,7 +7,8 @@
       <h4 class="card-title"><%= @task.content %></h4>
       <p class="card-text"><span class="text-muted">準備内容：</span><%= @task.prepare %></p>
       <p class="card-text"><%= @task.easy_i18n %></p>
-        <span><%= render partial: 'favorites/favorite_button', locals:{ task: @task } %></span>
+      <%= render 'shared/place_tag', task: @task %>
+      <p><%= render partial: 'favorites/favorite_button', locals:{ task: @task } %></p>
     </div>
   </div>
   <span><%= link_to "次の予定案を表示する", task_random_show_path(:id) , class: "btn btn-outline-primary ml-0 mb-3" %></span>
