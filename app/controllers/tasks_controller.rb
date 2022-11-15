@@ -56,7 +56,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:content, :prepare, :easy, place_ids: [])
+      params.require(:task).permit(:content, :prepare, :easy, place_ids: [], category_ids: [])
     end
 
     def set_q
