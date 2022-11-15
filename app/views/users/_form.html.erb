@@ -9,7 +9,7 @@
   </div>
   <div class="form-group">
     <%= f.label :birthday, "誕生年", class:"form-label mt-4" %>
-    <%= f.date_select :birthday, class:"form-select", use_month_numbers: true, start_year:1960, end_yaer: Time.now.year, prompt: "--", discard_day: true, discard_month: true %>
+    <%= f.date_select :birthday, { use_month_numbers: true, start_year:1960, end_yaer: Time.now.year, prompt: "--", discard_day: true, discard_month: true }, { class:"form-select" } %>
   </div>
   <div class="form-group">
     <legend class="mt-4">性別</legend>
