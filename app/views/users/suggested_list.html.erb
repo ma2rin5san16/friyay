@@ -1,24 +1,17 @@
 <turbo-frame id="suggest-list">
-<div class="container">
-  <legend><%= current_user.name %>さんが提案した過ごしかた一覧</legend>
-  <%= paginate @tasks , theme: 'bootstrap-5' %>
-  <% @tasks.each do |task| %>
-    <div class="card border-secondary mb-3" style="max-width: 100rem;">
-      <div class="card-header">by：<%= current_user.name %>さん</div>
-      <div class="card-body">
-        <h4 class="card-title"><%= task.content %></h4>
-        <p class="card-text"><%= task.prepare %></p>
-        <p class="card-text"><%= task.easy_i18n %></p>
-        <%= render 'shared/place_tag', task: task %>
-        <p><%= render partial: 'favorites/favorite_button', locals:{ task: task } %></p>
-        <% if task.user == current_user %>
-          <p class="card-text">
+  <div class="container">
+    <legend><%= current_user.name %>さんが提案した過ごしかた一覧</legend>
+    <%= paginate @tasks , theme: 'bootstrap-5' %>
+    <% @tasks.each do |task| %>
+      <div class="card border-secondary mb-3" style="max-width: 100rem;">
+        <%= render 'tasks/task', task: task%>
+        <div class="card-footer text-muted">
+          <% if task.user == current_user %>
             <%= link_to 'edit', edit_task_path(task) %>
             <%= link_to "delete", task_path(task), method: :delete, data: {confirm: "削除しますか？"} %>
-          <p>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </turbo-frame>
