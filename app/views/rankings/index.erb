@@ -1,49 +1,34 @@
 <div class="container">
   <div class="container col-lg-11">
-  <h4>週間ランキング</h4>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">順位</th>
-        <th scope="col">過ごしかた案</th>
-        <th scope="col">お気に入り数</th>
-        <th scope="col">提案者</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @weekly_all_rank.each.with_index(1) do |task, i| %>
-      <tr>
-        <th scope="row"><%= i %></th>
-        <td><%= task.content %></td>
-        <td><%= task.favorites.count %></td>
-        <td><%= task.user.name %>さん</td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <h4>週間ランキング</h4>
+     <%= render 'table', object: @weekly_rank %>
   </div>
-
   <div class="container col-lg-11">
-  <h4>合計ランキング</h4>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">順位</th>
-        <th scope="col">過ごしかた案</th>
-        <th scope="col">お気に入り数</th>
-        <th scope="col">提案者</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @all_rank.each.with_index(1) do |task, i| %>
-      <tr>
-        <th scope="row"><%= i %></th>
-        <td><%= task.content %></td>
-        <td><%= task.favorites.count %></td>
-        <td><%= task.user.name %>さん</td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <h4>総合ランキング</h4>
+     <%= render 'table', object: @all_rank %>
+  </div>
+  <div class="container col-lg-11">
+    <h4>男性総合ランキング</h4>
+      <%= render 'table', object: @male_all_rank %>
+  </div>
+  <div class="container col-lg-11">
+    <h4>女性総合ランキング</h4>
+      <%= render 'table', object: @female_all_rank %>
+  </div>
+  <div class="container col-lg-11">
+    <h4>2000年世代~生まれ総合ランキング</h4>
+      <%= render 'table', object: @generate_2000_all_rank %>
+  </div>
+  <div class="container col-lg-11">
+   <h4>1990年世代生まれ総合ランキング</h4>
+      <%= render 'table', object: @generate_1990_all_rank %>
+  </div>
+  <div class="container col-lg-11">
+    <h4>1980年世代生まれ総合ランキング</h4>
+      <%= render 'table', object: @generate_1980_all_rank %>
+  </div>
+  <div class="container col-lg-11">
+    <h4>~1970年世代生まれ総合ランキング</h4>
+      <%= render 'table', object: @generate_1970_all_rank %>
   </div>
 </div>
