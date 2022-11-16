@@ -1,13 +1,12 @@
-<% tasks.each do |task| %>
-  <div class="card border-secondary mb-3" style="max-width: 100rem;">
-    <div class="card-header">by：<%= "#{task.user.name}" %>さん</div>
-    <div class="card-body">
-      <h4 class="card-title"><%= task.content %></h4>
-      <p class="card-text"><span class="text-muted">準備内容：</span><%= task.prepare %></p>
-      <p class="card-text"><span class="text-muted">手軽度：</span><%= task.easy_i18n %></p>
-      <%= render 'shared/place_tag', task: task %>
-      <%= render 'shared/category_tag', task: task %>
-      <p><%= render partial: 'favorites/favorite_button', locals:{ task: task } %></p>
-    </div>
+<div class="card-header">by：<%= "#{task.user.name}" %>さん</div>
+  <div class="card-body">
+    <h4 class="card-title"><%= task.content %></h4>
+    <p class="card-text"><span class="text-muted">準備内容：</span><%= task.prepare %></p>
+    <p class="card-text"><span class="text-muted">手軽度：</span><%= task.easy_i18n %></p>
+    <%= render 'shared/place_tag', task: task %>
+    <%= render 'shared/category_tag', task: task %>
+    <p>
+      <%= render partial: 'favorites/favorite_button', locals:{ task: task } %>
+    </p>
   </div>
-<% end %>
+</div>

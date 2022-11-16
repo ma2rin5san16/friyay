@@ -9,9 +9,12 @@
         <%= b.label { b.check_box + b.text } %>
       <% end %>
       <%= f.submit "検索", class:"btn btn-secondary my-2 my-sm-0" %>
-
     <% end %>
   </form>
   <%= paginate @tasks, theme: 'bootstrap-5' %>
-  <%= render "task", tasks: @tasks %>
+  <% @tasks.each do |task| %>
+    <div class="card border-secondary mb-3" style="max-width: 100rem;">
+      <%= render "task", task: task %>
+    </div>
+  <% end %>
 </div>

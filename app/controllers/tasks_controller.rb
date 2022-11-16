@@ -37,9 +37,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    if task.user == current_user
-      task.destroy
-      redirect_to user_suggested_list_path(current_user), success: "削除しました。"
+    if @task.user == current_user
+      @task.destroy
+      redirect_to suggested_list_path, success: "削除しました。"
     else
       flash.now[:danger] = "無効な権限です"
       root_path
