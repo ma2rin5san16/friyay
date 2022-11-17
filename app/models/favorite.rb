@@ -16,6 +16,14 @@ class Favorite < ApplicationRecord
 
   enum status: { unevaluated: 0, evaluated: 1 }
 
+
+  #ランキングで使用
+  scope :with_user, -> { joins(:user) }
+  scope :search_with_gender, ->(gender) { where(users: {gender: gender}) }
+  scope :group_by_task, -> { group(:task_id) }
+  scope :search_with_weekly, -> { where(created_at: Time.current.all_week) }
+  scope :birth_between, -> (from, to) { where(users: { birthday: from..to }) }
+
   #ステータスを未実行⇄実行済に変更
   def toggle_status!
     if unevaluated?

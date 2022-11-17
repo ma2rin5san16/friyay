@@ -4,7 +4,7 @@
     <%= search_form_for @q, url: tasks_path do |f| %>
       <%= f.search_field :content_cont, class:"form-control-lg", placeholder:"過ごしかた検索" %><br>
       <%= f.select :easy_eq, Task.easies_i18n.invert.map { |key, value| [key, Task.easies[value]]}, { include_blank: "手軽度" }, { class: "form-select-sm" } %>
-      <%= f.select :places_id_eq, options_from_collection_for_select(Place.all, :id, :name), { include_blank: "場所"} , { class: "form-select-sm" } %>
+      <%= f.select :places_id_eq, options_from_collection_for_select(Place.all, :id, :name, selected: params[:q].present? ? params[:q][:places_id_eq] : nil), { include_blank: "場所"} , { class: "form-select-sm" } %>
       <%= f.collection_check_boxes :categories_id_in, Category.all, :id, :name, {checked:@q.categories_id_in}, { class: "form-check" } do |b| %>
         <%= b.label { b.check_box + b.text } %>
       <% end %>
