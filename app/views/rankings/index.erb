@@ -1,34 +1,23 @@
 <div class="container">
-  <div class="container col-lg-11">
-    <h4>週間ランキング</h4>
-     <%= render 'table', object: @weekly_rank %>
-  </div>
-  <div class="container col-lg-11">
-    <h4>総合ランキング</h4>
-     <%= render 'table', object: @all_rank %>
-  </div>
-  <div class="container col-lg-11">
-    <h4>男性総合ランキング</h4>
-      <%= render 'table', object: @male_all_rank %>
-  </div>
-  <div class="container col-lg-11">
-    <h4>女性総合ランキング</h4>
-      <%= render 'table', object: @female_all_rank %>
-  </div>
-  <div class="container col-lg-11">
-    <h4>2000年世代~生まれ総合ランキング</h4>
-      <%= render 'table', object: @generate_2000_all_rank %>
-  </div>
-  <div class="container col-lg-11">
-   <h4>1990年世代生まれ総合ランキング</h4>
-      <%= render 'table', object: @generate_1990_all_rank %>
-  </div>
-  <div class="container col-lg-11">
-    <h4>1980年世代生まれ総合ランキング</h4>
-      <%= render 'table', object: @generate_1980_all_rank %>
-  </div>
-  <div class="container col-lg-11">
-    <h4>~1970年世代生まれ総合ランキング</h4>
-      <%= render 'table', object: @generate_1970_all_rank %>
-  </div>
+  <%= form_tag(rankings_path, method: :get) do %>
+    <%= select_tag 'range' ,options_for_select([['全期間', '1'], ['週間', '2']], selected: params[:range]), { class: 'form-select-input' }  %>
+    <%= select_tag 'gender', options_for_select([['---性別---', ''], ["男性",'1'], ["女性",'2']], selected: params[:gender]), { class: 'form-select-input' } %>
+    <%= submit_tag "検索" %>
+  <% end %>
+  <% @tasks.each.with_index(1) do |task, i| %>
+    <div class="card border-secondary mt-1 mb-2" style="max-width: 100rem;">
+      <div class="card-header"><%= i %>位  計<%= task.favorites.count %>票</div>
+      <div class="card-body">
+        <h4 class="card-title"><%= task.content %></h4>
+          <p class="card-text"><span class="text-muted">準備内容：</span><%= task.prepare %></p>
+          <p class="card-text"><span class="text-muted">手軽度：</span><%= task.easy_i18n %></p>
+            <%= render 'shared/place_tag', task: task %>
+            <%= render 'shared/category_tag', task: task %>
+          <p>
+            <%= render partial: 'favorites/favorite_button', locals:{ task: task } %>
+          </p>
+      </div>
+    </div>
+    <% end %>
 </div>
+  
