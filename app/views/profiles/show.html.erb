@@ -11,8 +11,8 @@
       </div>
       <div class="card-body">
         <h5>Records</h5>
-        <h6 class="card-text">提案数：<%= link_to @current_user.tasks.size, suggested_list_path %>件</h6>
-        <h6 class="card-text">気になる数：<%= link_to @current_user.favorites.size, favorited_list_path %>件</h6>
+        <h6 class="card-text">提案数：<%= link_to "#{@current_user.tasks.size}件", suggested_list_path %></h6>
+        <h6 class="card-text">気になる数：<%= link_to "#{@current_user.favorites.size}件", favorited_list_path %></h6>
         <h6 class="card-text">実行済数：<%= @current_user.favorites.where(status: "evaluated").size %>件</h6>
       </div>
     </div>

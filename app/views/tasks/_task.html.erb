@@ -13,5 +13,5 @@
   <p>
     <%= render partial: 'favorites/favorite_button', locals:{ task: task } %>
   </p>
+  <h6 class="card-text">Presented by：<%= "#{task.user.name}" %>さん</h6>
 </div>
-<div class="card-footer">Presented by：<%= "#{task.user.name}" %>さん</div>
