@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root "static_pages#top"
+  get '/privacy_policy', to: "static_pages#privacy_policy"
+  get '/kiyaku', to: "static_pages#kiyaku"
   get 'guest_sessions/new'
   post '/guest_login', to: "guest_sessions#create"
   get '/login', to: "sessions#new"

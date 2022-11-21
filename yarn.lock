@@ -2,3 +2,7 @@
 # yarn lockfile v1
 
 
+"raty-js@^4.1.0":
+  "integrity" "sha512-1mR50kE+/mdOseErh1pb2wRp+yx+FZfVLaeanxbfsxtB6izGquXNPI4XUnQ6u894hY0iKwztDLWG/SJTNHS3eg=="
+  "resolved" "https://registry.npmjs.org/raty-js/-/raty-js-4.1.0.tgz"
+  "version" "4.1.0"
