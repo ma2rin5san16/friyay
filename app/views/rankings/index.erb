@@ -1,12 +1,24 @@
 <div class="container">
+  <legend>気になるランキング</legend>
   <%= form_tag(rankings_path, method: :get) do %>
-    <%= select_tag 'range' ,options_for_select([['全期間', '1'], ['週間', '2']], selected: params[:range]), { class: 'form-select-input' }  %>
-    <%= select_tag 'gender', options_for_select([['---性別---', ''], ["男性",'1'], ["女性",'2']], selected: params[:gender]), { class: 'form-select-input' } %>
-    <%= submit_tag "検索" %>
+    <div class="row">
+      <div class="col">
+        <%= select_tag 'range' ,options_for_select([['全期間', '1'], ['週間', '2']], selected: params[:range]), { class: 'form-select' }  %>
+      </div>
+      <div class="col">
+        <%= select_tag 'gender', options_for_select([['---性別---', ''], ["男性",'1'], ["女性",'2']], selected: params[:gender]), { class: 'form-select' } %>
+      </div>
+      <div class="col">
+        <%= select_tag '#', options_for_select([]), { class: 'form-select' } %>
+      </div>
+      <div class="col">
+        <%= submit_tag "検索" %>
+      </div>
+    </div>
   <% end %>
   <% @tasks.each.with_index(1) do |task, i| %>
-    <div class="card border-secondary mt-1 mb-2" style="max-width: 100rem;">
-      <div class="card-header"><%= i %>位  計<%= task.favorites.count %>票</div>
+    <div class="card border-secondary mt-4 mb-4 text-center" style="max-width: 100rem;">
+      <div class="card-header"><%= i %>位</div>
       <div class="card-body">
         <h4 class="card-title"><%= task.content %></h4>
           <p class="card-text"><span class="text-muted">準備内容：</span><%= task.prepare %></p>

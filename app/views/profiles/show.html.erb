@@ -1,26 +1,19 @@
 <div class="container">
-<legend><%= current_user.name %>さんのページ</legend>
+  <legend>マイページ</legend>
 
-<div class="card mt-3 mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <%= image_tag 'logo.png', class:"img-thumbnail" %>
-    </div>
-    <div class="col-md-8">
+    <div class="card mb-3">
+      <h5 class="card-header">Profile</h5>
       <div class="card-body">
-        <h5>プロフィール</h5>
         <h6 class="card-text"><%= @current_user.name %></h6>
         <h6 class="card-text"><%= @current_user.birthday.year %>年生まれ</h6>
         <h6 class="card-text"><%= @current_user.gender_i18n %></h6>
-        <%= link_to "edit", edit_profile_path %>
+        <h6 class="card-subtitle text-muted"><%= link_to "edit", edit_profile_path unless current_user.guest? %></h6>
+      </div>
+      <div class="card-body">
+        <h5>Records</h5>
+        <h6 class="card-text">提案数：<%= link_to @current_user.tasks.size, suggested_list_path %>件</h6>
+        <h6 class="card-text">気になる数：<%= link_to @current_user.favorites.size, favorited_list_path %>件</h6>
+        <h6 class="card-text">実行済数：<%= @current_user.favorites.where(status: "evaluated").size %>件</h6>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="d-grid gap-2">
-  <%= link_to "提案一覧", suggested_list_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "気になるリスト", favorited_list_path, class: "btn btn-lg btn-primary" %>
-</div>
-
 </div>

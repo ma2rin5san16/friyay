@@ -1,34 +1,36 @@
-<%= form_with model: current_user, url: profile_path, local: true, data: { turbo: false } do |f| %>
-  <div class="form-group">
-    <%= f.label :name, "名前",  class:"form-label mt-4" %>
-    <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :email, "メールアドレス", class:"form-label mt-4" %>
-    <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :birthday, "誕生年", class:"form-label mt-4" %>
-    <%= f.date_select :birthday, class:"form-select", use_month_numbers: true, start_year:1960, end_yaer: Time.now.year, prompt: "--", discard_day: true, discard_month: true %>
-  </div>
-  <div class="form-group">
-    <legend class="mt-4">性別</legend>
-      <div class="form-check">
-        <%= f.radio_button :gender, :male %>
-        <%= f.label :gender_male, "男性" %>
-      </div>
-      <div class="form-check">
-        <%= f.radio_button :gender, :female %>
-        <%= f.label :gender_female, "女性" %>
-      </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :password, "パスワード", class:"form-label mt-4" %>
-    <%= f.password_field :password, class: "form-control", placeholder:"パスワード" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password, "パスワード(確認)", class:"form-label mt-4" %>
-    <%= f.password_field :password_confirmation, class: "form-control", placeholder:"パスワード(確認)" %>
-  </div>
-    <%= f.submit "登録する", class: "btn btn-primary mt-4" %>
-<% end %>
+<div class="container">
+  <%= form_with model: current_user, url: profile_path, local: true, data: { turbo: false } do |f| %>
+    <div class="form-group">
+      <%= f.label :name, "名前",  class:"form-label mt-4" %>
+      <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, "メールアドレス", class:"form-label mt-4" %>
+      <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :birthday, "誕生年", class:"form-label mt-4" %>
+      <%= f.date_select :birthday, class:"form-select", use_month_numbers: true, start_year:1960, end_yaer: Time.now.year, prompt: "--", discard_day: true, discard_month: true %>
+    </div>
+    <div class="form-group">
+      <legend class="mt-4">性別</legend>
+        <div class="form-check">
+          <%= f.radio_button :gender, :male %>
+          <%= f.label :gender_male, "男性" %>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :gender, :female %>
+          <%= f.label :gender_female, "女性" %>
+        </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, "パスワード", class:"form-label mt-4" %>
+      <%= f.password_field :password, class: "form-control", placeholder:"パスワード" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, "パスワード(確認)", class:"form-label mt-4" %>
+      <%= f.password_field :password_confirmation, class: "form-control", placeholder:"パスワード(確認)" %>
+    </div>
+      <%= f.submit "登録する", class: "btn btn-primary mt-4" %>
+  <% end %>
+</div>

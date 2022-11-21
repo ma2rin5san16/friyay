@@ -1,16 +1,17 @@
 <turbo-frame id="random">
 <div class="container">
   <legend>ランダムで探す</legend>
-    <div class="card border-secondary mb-3" style="max-width: 100rem;">
+    <div class="card border-secondary mb-3 text-center" style="max-width: 100rem;">
       <%= render 'tasks/task', task: @task%>
     </div>
-  <span><%= link_to "次の予定案を表示する", task_random_show_path(:id) , class: "btn btn-outline-primary ml-0 mb-3" %></span>
+    <div class="col text-center">
+      <%= link_to "次の予定案を表示する", task_random_show_path(:id) , class: "btn btn-outline-primary ml-0 mb-3 col-6 mx-auto" %>
+    </div>
 
-  <%= paginate @favorites, theme: 'bootstrap-5' %>
     <% @favorites.each do |favorite| %>
       <% if favorite.rating.present? || favorite.comment.present? %>
-        <legend>実行した人の評価</legend>
-        <div class="card border-secondary mb-3" style="max-width: 100rem;">
+        <legend text-center>実行した人の評価</legend>
+        <div class="card border-secondary mb-3 text-center" style="max-width: 100rem;">
         <div class="card-header"><%= favorite.user.name %>さん</div>
         <div class="card-body">
           <% unless favorite.rating.nil? %>
@@ -21,6 +22,7 @@
         <p class="card-text"><%= favorite.comment %></p>
         </div>
       </div>
+      <%= paginate @favorites, theme: 'bootstrap-5' %>
       <% end %>
     <% end %>
   </div>
