@@ -1,6 +1,6 @@
 # friYAY（花金の過ごし方提案アプリ）
 
-![イメージ画像]("https://user-images.githubusercontent.com/95573057/203005059-b6a69a59-253d-477b-ba4b-efbbc06fecf6.png") 
+![イメージ画像](https://user-images.githubusercontent.com/95573057/203005059-b6a69a59-253d-477b-ba4b-efbbc06fecf6.png) 
 
 ## ■ サービス概要
 せっかくの金曜日の夜を無駄にしない、充実した時間を過ごすための予定を提案してくれるアプリです。  
