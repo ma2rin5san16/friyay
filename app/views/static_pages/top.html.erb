@@ -43,7 +43,7 @@
     <div class="card col-lg-4">
       <div class="card-body">
         <%= image_tag "good.png", class: "mb-2"%>
-        <h4><%= link_to "Like", '#', class: "card-title mt-3" %></h4>
+        <h4><%= link_to "Like", favorited_list_path, class: "card-title mt-3" %></h4>
         <h6 class="card-subtitle mb-2 text-muted">お気に入り登録</h6>
         <p class="card-text">気に入った過ごしかたをお気に入り登録することができます。</p>
       </div>
@@ -51,7 +51,7 @@
     <div class="card col-lg-4">
       <div class="card-body">
         <%= image_tag "comment.png" %>
-        <h4><%= link_to "Review", '#', class: "card-title mt-3" %></h4>
+        <h4><%= link_to "Review", favorited_list_path, class: "card-title mt-3" %></h4>
         <h6 class="card-subtitle mb-2 text-muted">評価</h6>
         <p class="card-text">実際に過ごしてみた感想を評価することができます。</p>
         <h6 class="card-subtitle mb-2 text-muted">※ユーザー登録が必要です</h6>
