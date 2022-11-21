@@ -57,5 +57,18 @@ README〜ER図作成：- 9/11
 β版をRUNTEQ内リリース（MVP）： - 10/31  
 本番リリース：11月中旬  
 
+## ■使用技術
+バックエンド
+- Ruby 3.1.2
+- Ruby on Rails 7.0.4
+
+フロントエンド
+- HTML/SCSS/JavaScript(jQuery)
+- CSS/frame-work
+  -Bootstrap
+
+インフラ
+- Fly.io
+
 ## ■資料
 ER図：https://drive.google.com/file/d/1-LvS2FlxxzCDU5y10V_OQVgsjQj1mMsx/view?usp=sharing

@@ -8,7 +8,7 @@
     <h6 class="card-text">手軽度</h6>
     <h5><%= task.easy_i18n %><h5>
   </p>
-  <%= render 'shared/place_tag', task: task %>
+  <%= render 'shared/place_tag', task: task %><br>
   <%= render 'shared/category_tag', task: task %>
   <p>
     <%= render partial: 'favorites/favorite_button', locals:{ task: task } %>
