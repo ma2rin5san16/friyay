@@ -13,5 +13,10 @@
   <p>
     <%= render partial: 'favorites/favorite_button', locals:{ task: task } %>
   </p>
+  <h6>
+    <%= link_to "https://twitter.com/share?url=#{ request.url }&text=【花金の予定】%0a%0a#{ task.content }", target: '_blank' do %>
+      <i class="fab fa-twitter" style='color: #3399FF;'>ツイートする</i>
+    <% end %>
+  </h6>
   <h6 class="card-text">Presented by：<%= "#{task.user.name}" %>さん</h6>
 </div>
