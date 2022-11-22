@@ -9,6 +9,7 @@ class RankingsController < ApplicationController
     #選択された数字がインスタンスに代入される
     @range = params[:range]
     @gender = params[:gender]
+    @generate = params[:gender]
 
     if @range == "1" && @gender == "1"
       @tasks = Task.find(Favorite.with_user.search_with_gender(0).group_by_task.order('count(task_id) desc').limit(3).pluck(:task_id))
