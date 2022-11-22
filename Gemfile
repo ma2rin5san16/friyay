@@ -68,6 +68,8 @@ gem 'bootstrap5-kaminari-views'
 
 gem 'mini_racer'
 
+gem 'draper'
+
 gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
