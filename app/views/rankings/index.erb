@@ -9,9 +9,6 @@
         <%= select_tag 'gender', options_for_select([['---性別---', ''], ["男性",'1'], ["女性",'2']], selected: params[:gender]), { class: 'form-select' } %>
       </div>
       <div class="col">
-        <%= select_tag 'generate', options_for_select([["---世代---"], ["20代", "20"]]), { class: 'form-select' } %>
-      </div>
-      <div class="col">
         <%= submit_tag "検索" %>
       </div>
     </div>
