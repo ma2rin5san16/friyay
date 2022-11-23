@@ -1,0 +1,13 @@
+<div class="container">
+<legend>パスワード再設定</legend>
+  <%= form_with scope: :password_reset, url: password_resets_path, local: true, data: { turbo: false } do |f| %>
+    <div class="form-group">
+      <div class="form-floating mb-3">
+        <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+        <%= f.label :email, "メールアドレス" %>
+      </div>
+    </div>
+    <%= f.submit "送信", class: "btn btn-primary mt-4" %>
+  <% end %>
+</div>
+

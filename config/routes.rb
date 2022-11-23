@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   root "static_pages#top"
   get '/privacy_policy', to: "static_pages#privacy_policy"
   get '/kiyaku', to: "static_pages#kiyaku"
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   end
   resources :rankings, only: %i[index]
   resource :profile, only: %i[show edit update]
+  resources :password_resets, only: %i[new create edit update]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
