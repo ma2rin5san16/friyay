@@ -5,4 +5,5 @@ module LoginSupport
     fill_in 'パスワード', with: user.password
     click_button 'ログイン'
   end
+
 end

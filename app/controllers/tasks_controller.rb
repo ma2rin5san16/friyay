@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
   before_action :logged_in_user
-  before_action :only_register_user, only: %i[new create destroy edit update]
+  before_action :only_register_user, only: %i[new create]
+  before_action :correct_user, only: %i[edit update destroy]
   before_action :set_q, only: %i[index search]
-  before_action :set_task, only: %i[edit update destroy]
+  before_action :set_task, only: %i[edit destroy]
 
   def index
     @tasks = @q.result.order(created_at: :desc).page(params[:page])
@@ -27,23 +28,17 @@ class TasksController < ApplicationController
   def edit; end
 
   def update
-    if @task.user == current_user
-      @task.update(task_params) 
-      redirect_to suggested_list_path, success: "更新しました。"
-    else
-      flash.now[:danger] = "更新に失敗しました。"
-      render 'edit'
-    end
+      if @task.update(task_params) 
+        redirect_to suggested_list_path, success: "更新しました。"
+      else
+        flash.now[:danger] = "更新に失敗しました。"
+        render 'edit'
+      end
   end
 
   def destroy
-    if @task.user == current_user
-      @task.destroy
-      redirect_to suggested_list_path, success: "削除しました。"
-    else
-      flash.now[:danger] = "無効な権限です"
-      root_path
-    end
+    @task.destroy
+    redirect_to suggested_list_path, success: "削除しました。"
   end
 
   def random_show
@@ -65,5 +60,10 @@ class TasksController < ApplicationController
 
     def set_task
       @task = Task.find(params[:id])
+    end
+
+    def correct_user
+      @task = current_user.tasks.find_by(id: params[:id])
+      redirect_to root_path if @task.nil?
     end
 end
