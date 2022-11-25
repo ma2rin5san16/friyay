@@ -1,0 +1,37 @@
+<% if favorite.rating == 5 %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-on.png' %>
+<% elsif favorite.rating == 4 %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-off.png' %>
+<% elsif favorite.rating == 3 %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-off.png' %>
+  <%= image_tag 'star-off.png' %>
+<% elsif favorite.rating == 2 %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-off.png' %>
+  <%= image_tag 'star-off.png' %>
+  <%= image_tag 'star-off.png' %>
+<% elsif favorite.rating == 1%>
+  <%= image_tag 'star-on.png' %>
+  <%= image_tag 'star-off.png' %>
+  <%= image_tag 'star-off.png' %>
+  <%= image_tag 'star-off.png' %>
+  <%= image_tag 'star-off.png' %>
+<% else %>
+  <%= image_tag 'star-off.png' %>
+  <%= image_tag 'star-off.png' %>
+  <%= image_tag 'star-off.png' %>
+  <%= image_tag 'star-off.png' %>
+  <%= image_tag 'star-off.png' %>
+<% end %>

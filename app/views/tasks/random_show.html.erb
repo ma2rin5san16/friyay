@@ -16,7 +16,7 @@
         <div class="card-body">
           <% unless favorite.rating.nil? %>
             <h4 class="card-title">
-              <div class="evaluation" data-score="<%= favorite.rating %>"></div>
+              <span><%= render 'shared/star', favorite: favorite %><br>
             </h4>
           <% end %>
         <p class="card-text"><%= favorite.comment %></p>
@@ -27,15 +27,4 @@
     <% end %>
   </div>
 </div>
-<script>
-  $('.evaluation').empty();
-  $('.evaluation').raty({
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    },
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>'
-  });
-</script>
 </turbo-frame>

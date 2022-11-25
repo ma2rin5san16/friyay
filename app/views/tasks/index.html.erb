@@ -3,19 +3,19 @@
     <form>
       <%= search_form_for @q, url: tasks_path do |f| %>
         <div class="row">
-          <div class="col">
+          <div class="col-sm mb-1">
             <%= f.search_field :content_cont, class:"form-control me-sm-2", placeholder:"キーワード" %>
           </div>
-          <div class="col">
+          <div class="col-sm mb-1">
             <%= f.select :easy_eq, Task.easies_i18n.invert.map { |key, value| [key, Task.easies[value]]}, { include_blank: "手軽度" }, { class: "form-select" } %>
           </div>
-          <div class="col">
+          <div class="col-sm mb-1">
             <%= f.select :places_id_eq, options_from_collection_for_select(Place.all, :id, :name, selected: params[:q].present? ? params[:q][:places_id_eq] : nil), { include_blank: "場所"} , { class: "form-select" } %>
           </div>
         </div>
         <div class="row">
           <%= f.collection_check_boxes :categories_id_in, Category.all, :id, :name, {checked:@q.categories_id_in}, { class: "form-check-inline" } do |b| %>
-            <div class="col mt-3 mb-3">
+            <div class="col-sm mt-3 mb-3">
             <%= b.label { b.check_box + b.text } %>
             </div>
           <% end %>

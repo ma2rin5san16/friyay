@@ -3,20 +3,21 @@ require 'rails_helper'
 RSpec.describe "Sessions", type: :request do
 
   describe "GET /login" do
-    it 'returns http success' do
-      get login_path
+    it 'ログインページが表示される' do
+      visit login_path
       expect(response).to have_http_status :success
     end
   end
 
   describe '#create' do
     context '無効な値の場合' do
-      it 'flashメッセージが表示される' do
+      it 'flashメッセージが表示され、ログインページのまま' do
         visit login_path
         fill_in 'メールアドレス', with: ''
         fill_in 'パスワード', with: ''
         click_button 'ログイン'
         expect(page).to have_selector 'div.alert.alert-danger'
+        expect(current_path).to eq login_path
       end
     end
 
