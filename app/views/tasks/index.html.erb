@@ -15,18 +15,18 @@
         </div>
         <div class="row">
           <%= f.collection_check_boxes :categories_id_in, Category.all, :id, :name, {checked:@q.categories_id_in}, { class: "form-check-inline" } do |b| %>
-            <div class="col-sm mt-3 mb-3">
+            <div class="col mt-3 mb-3">
             <%= b.label { b.check_box + b.text } %>
             </div>
           <% end %>
         <%= f.submit "検索", class:"btn btn-secondary mb-3" %>
         </div>
       <% end %>
-        </form>
-  <% @tasks.each do |task| %>
-    <div class="card border-secondary mb-3 text-center" style="max-width: 100rem;">
-      <%= render "task", task: task %>
-    </div>
-  <% end %>
+    </form>
+    <% @tasks.each do |task| %>
+      <div class="card border-secondary mb-3 text-center" style="max-width: 100rem;">
+        <%= render "task", task: task %>
+      </div>
+    <% end %>
   <%= paginate @tasks, theme: 'bootstrap-5' %>
 </div>
