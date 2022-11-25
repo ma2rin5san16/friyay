@@ -11,7 +11,7 @@ class GuestSessionsController < ApplicationController
       user.guest = true
     if user.save
       log_in user
-      redirect_to root_path, success: 'ゲストログインとしてログインしました'
+      redirect_to root_path, success: 'ゲストとしてログインしました'
     else
       flash.now[:danger] = "ログインできませんでした"
       render 'new'
