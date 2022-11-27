@@ -33,3 +33,5 @@ node_modules/
 /config/master.key
 
 vendor/bundle
+
+.env

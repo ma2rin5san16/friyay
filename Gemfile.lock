@@ -108,6 +108,10 @@ GEM
       irb (>= 1.3.6)
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     draper (4.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -319,6 +323,7 @@ DEPENDENCIES
   capybara
   capybara-screenshot
   debug
+  dotenv-rails
   draper
   enum_help
   factory_bot_rails
