@@ -13,8 +13,8 @@ class PasswordResetsController < ApplicationController
       flash[:info] = "メールを送信しました"
       redirect_to root_path
     else
-      flash.now[:danger] = "メールアドレスが存在しません"
-      render 'new'
+      flash[:info] = "メールを送信しました"
+      redirect_to root_path
     end
   end
 
