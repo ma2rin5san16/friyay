@@ -21,13 +21,9 @@ RSpec.describe "Users", type: :request do
         choose 'user_gender_male'
         fill_in 'user[password]', with: @user.password
         fill_in 'user[password_confirmation]', with: @user.password_confirmation
-
-      # サインアップボタンを押すとユーザーモデルのカウントが1上がることを確認する
         expect do
           click_button "登録する"
         end.to change(User, :count).by(1)
-
-        # トップページへ遷移したことを確認する
         expect(current_path).to eq root_path
         expect(page).to have_selector 'div.alert.alert-success', text: 'ユーザーを登録しました'
       end
@@ -41,13 +37,9 @@ RSpec.describe "Users", type: :request do
         select '--',from: 'user[birthday(1i)]'
         fill_in 'user[password]', with: ''
         fill_in 'user[password_confirmation]', with: ''
-
-        # サインアップボタンを押すとユーザーモデルのカウントが1上がることを確認する
         expect do
           click_button "登録する"
         end.to change(User, :count).by(0)
-
-        # 画面遷移せず、エラーメッセージが表示される
         expect(current_path).to eq "/users"
         expect(page).to have_content '登録に失敗しました'
       end

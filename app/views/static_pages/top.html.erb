@@ -18,16 +18,16 @@
     <div class="card col-lg-4">
         <div class="card-body">
         <%= image_tag "search.png" %>
-        <h4><%= link_to "Search", task_random_show_path(:task_id), class:"card-title" %></h4>
+        <h4><%= link_to "Search", task_random_show_path(:task_id), class:"card-title", id: "id-search" %></h4>
         <h6 class="card-subtitle mb-2 text-muted">過ごしかたを探す</h6>
         <p class="card-text">提案された過ごしかたをランダムで表示させたり、キーワードで検索したりすることができます。</p>
-        <%= link_to "一覧はこちら", tasks_path,  class:"card-subtitle mb-2 text-muted" %>
+        <%= link_to "一覧はこちら", tasks_path,  class:"card-subtitle mb-2 text-muted", id: "id-index" %>
         </div>
     </div>
     <div class="card col-lg-4">
       <div class="card-body">
       <%= image_tag "suggest.png" %>
-      <h4><%= link_to "Suggest", new_task_path, class:"card-title" %></h4>
+      <h4><%= link_to "Suggest", new_task_path, class:"card-title", id: "id-suggest" %></h4>
       <h6 class="card-subtitle mb-2 text-muted">過ごしかたを提案する</h6>
       <p class="card-text">自分オリジナルの過ごしかたを提案することができます。あなたの素敵な過ごしかたを共有してみませんか？</p>
       <h6 class="card-subtitle mb-2 text-muted">※ユーザー登録が必要です</h6>
@@ -44,7 +44,7 @@
     <div class="card col-lg-4">
       <div class="card-body">
         <%= image_tag "good.png", class: "mb-2"%>
-        <h4><%= link_to "Like", favorited_list_path, class: "card-title mt-3" %></h4>
+        <h4><%= link_to "Like", favorited_list_path, class: "card-title mt-3", id: 'id-favorited-list' %></h4>
         <h6 class="card-subtitle mb-2 text-muted">お気に入り登録</h6>
         <p class="card-text">気に入った過ごしかたをお気に入り登録することができます。</p>
       </div>
