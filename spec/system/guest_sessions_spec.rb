@@ -13,7 +13,6 @@ RSpec.describe "Sessions", type: :request do
             click_button "ログイン"
           end.to change(User, :count).by(0)
         expect(page).to have_selector 'div.alert.alert-danger', text: 'ログインできませんでした'
-
         expect(current_path).to eq "/guest_login"
       end
     end
